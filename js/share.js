@@ -30,7 +30,7 @@
             '<a href="//www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
             '<a href="//service.weibo.com/share/share.php?title=' + title + '&url=' + encodedUrl + '&searchPic=true&style=number' + '" class="article-share-weibo" target="_blank" title="Weibo"></a>',
             '<a href="' + qrcode_img + '" class="article-share-qrcode" target="_blank" title="QR code"></a>',
-            '<div class="qrcode"><img src=' + qrcode_img + '></div>',
+            '<div class="qrcode"><img src="./ + qrcode_img + "></div>',
           '</div>',
         '</div>'
       ].join('');
