@@ -1,2 +1,1371 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="有趣即正义"><title>fanbuxie | 一个小站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"><meta name="generator" content="Hexo 4.2.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">fanbuxie</h1><a id="logo" href="/.">fanbuxie</a><p class="description">一个小站</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2020/06/03/Part-5/">Part 5</a></h1><div class="post-meta">2020-06-03</div><div class="post-content"><h1 id="第-5-部分：功能通信要求和装置模型"><a href="#第-5-部分：功能通信要求和装置模型" class="headerlink" title="第 5 部分：功能通信要求和装置模型"></a>第 5 部分：功能通信要求和装置模型</h1><h2 id="0-引言"><a href="#0-引言" class="headerlink" title="0. 引言"></a>0. 引言</h2><p><strong>IEC 61850</strong></p></div><p class="readmore"><a href="/2020/06/03/Part-5/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2020/03/22/Hello-World/">Hello？Hello！</a></h1><div class="post-meta">2020-03-22</div><div class="post-content"><h3 id="这是什么？"><a href="#这是什么？" class="headerlink" title="这是什么？"></a>这是什么？</h3><p>这是一个用Hexo搭建的小站，用于记录、学习、总结、反思。</p>
-<h3 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h3><p>要说这一切的源头，是从去年的双十一开始的。每每遇到这个时候，国内的两大云服务提供者阿里云和腾讯云都会顺势推出很多价格优惠的服务器，今年也不例外。因为一直想有一台服务器来搞点小项目，而且价格确实挺便宜，虽然还没想好做什么，秉着用硬件基础来创造需求的念头，就入了一个配置最基础的一个服务器。</p></div><p class="readmore"><a href="/2020/03/22/Hello-World/">阅读全文</a></p></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://fanbuxie823.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/06/03/Part-5/">Part 5</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/Hello-World/">Hello？Hello！</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">fanbuxie.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>fanbuxie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="有趣即正义">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fanbuxie">
+<meta property="og:url" content="http://fanbuxie823.github.io/index.html">
+<meta property="og:site_name" content="fanbuxie">
+<meta property="og:description" content="有趣即正义">
+<meta property="article:author" content="E.M.I">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="fanbuxie" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">fanbuxie</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个小站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="fanbuxie823.github.io">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
+  
+    <article id="post-Part-5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/03/Part-5/" class="article-date">
+  <time datetime="2020-06-03T10:48:47.000Z" itemprop="datePublished">2020-06-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/03/Part-5/">Part 5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第-5-部分：功能通信要求和装置模型"><a href="#第-5-部分：功能通信要求和装置模型" class="headerlink" title="第 5 部分：功能通信要求和装置模型"></a>第 5 部分：功能通信要求和装置模型</h1><h2 id="0-引言"><a href="#0-引言" class="headerlink" title="0. 引言"></a>0. 引言</h2><p><strong>IEC 61850</strong></p>
+<ul>
+<li>为了实现变电站内所有装置间的互操作</li>
+<li>变电站内所有装置间的通信应满足变电站中所完成全部功能的要求</li>
+<li>系列标准总则、要求规范和建模等部分与任何实现无关</li>
+</ul>
+<p><strong>第5部分</strong></p>
+<ul>
+<li><p>变电站功能的通信要求和装置模型</p>
+</li>
+<li><p>通信模型</p>
+<ul>
+<li>对象（如，数据对象、数据集、报告控制、登录控制）</li>
+<li>对象提供的服务（取数、设定、报告、创建、删除）</li>
+</ul>
+</li>
+<li><p>标准的一般结构：</p>
+<img src="./image-20200521105308906.png" alt style="zoom:70%;">
+
+</li>
+</ul>
+<h2 id="1-范围"><a href="#1-范围" class="headerlink" title="1. 范围"></a>1. 范围</h2><ul>
+<li>本标准适用于变电站自动化系统（SAS），规定了智能电子设备之间的通信和相关系统要求</li>
+<li>本标准规定了变电站自动化系统所完成功能的<strong>通信要求</strong>和<strong>装置模型</strong>。</li>
+<li><strong>功能的描述</strong>并不是用于功能标准化而是用于标识技术服务和变电站之间、变电站内智能电子设备 （IED）之间的<strong>通信要求</strong>。==<em>只为了标示通信要求</em>==</li>
+<li>为支持功能自由分配要求，定义了将功能<strong>分解为相关通信部分</strong>的方法，规定了交换数据和它们的性能要求。</li>
+</ul>
+<h2 id="2-规范性引用文件"><a href="#2-规范性引用文件" class="headerlink" title="2. 规范性引用文件"></a>2. 规范性引用文件</h2><p><em>pass</em></p>
+<h2 id="3-术语和定义"><a href="#3-术语和定义" class="headerlink" title="3. 术语和定义"></a>3. 术语和定义</h2><p>内容同 IEC61850-2</p>
+<h3 id="3-1-功能-function"><a href="#3-1-功能-function" class="headerlink" title="3.1 功能 function"></a>3.1 功能 function</h3><ul>
+<li>由变电站自动化系统执行的任务称之为功能</li>
+<li>一个功能是由若干一些相互交换数据的部分组成，这些部分称之为逻辑节点</li>
+<li>仅有逻辑节点能交换数据，所以一个同其他功能交换数据的功能必然至少有一个逻辑节点。</li>
+</ul>
+<h3 id="3-2-分布功能-distributed-function"><a href="#3-2-分布功能-distributed-function" class="headerlink" title="3.2 分布功能 distributed function"></a>3.2 分布功能 distributed function</h3><ul>
+<li>由位于不同物理装置上的两个或多个逻辑节点完成一个功能</li>
+<li>在一个逻辑节点，或一个有关通信连接的逻辑节点不能正常工作时，功能可能被完全<strong>闭锁</strong>，如果合适，功能有较大可能<strong>降级</strong></li>
+</ul>
+<h3 id="3-3-系统-system"><a href="#3-3-系统-system" class="headerlink" title="3.3 系统 system"></a>3.3 系统 system</h3><ul>
+<li>执行共同功能的一组交互实体，它的中枢是某种通信机制</li>
+</ul>
+<h4 id="3-3-1-逻辑系统-logical-system"><a href="#3-3-1-逻辑系统-logical-system" class="headerlink" title="3.3.1 逻辑系统 logical system"></a>3.3.1 逻辑系统 logical system</h4><ul>
+<li>（通过逻辑节点）完成某种整体任务的全部应用功能的通信集</li>
+<li><em>比如，变电站管理</em></li>
+</ul>
+<h4 id="3-3-2-物理系统-physical-system"><a href="#3-3-2-物理系统-physical-system" class="headerlink" title="3.3.2 物理系统 physical system"></a>3.3.2 物理系统 physical system</h4><ul>
+<li>承载这些功能与互连物理通信网络所有设备的交互集。</li>
+<li>系统的边界由其逻辑或物理接口给定。</li>
+<li>物理系统的中枢是其通信系统</li>
+<li><em>例如工业系统，管理系统，信息系统，以及在IEC 61850系列范围内的变电站自动化系统</em></li>
+</ul>
+<h4 id="3-3-3-变电站自动化系统-substation-sutomation-system"><a href="#3-3-3-变电站自动化系统-substation-sutomation-system" class="headerlink" title="3.3.3 变电站自动化系统 substation sutomation system"></a>3.3.3 变电站自动化系统 substation sutomation system</h4><ul>
+<li>主要系统为运行，保护，监视变电站的系统</li>
+<li>它使用全数字技术和串行通讯连接（通讯系统）。</li>
+</ul>
+<h4 id="3-3-4-一次系统-primary-system"><a href="#3-3-4-一次系统-primary-system" class="headerlink" title="3.3.4 一次系统 primary system"></a>3.3.4 一次系统 primary system</h4><ul>
+<li>所有电力系统设备和开关设备</li>
+</ul>
+<h4 id="3-3-5-二次系统-secondary-system"><a href="#3-3-5-二次系统-secondary-system" class="headerlink" title="3.3.5 二次系统 secondary system"></a>3.3.5 二次系统 secondary system</h4><ul>
+<li>变电站中，用于运行、保护和监视一次系统的所有装置和系统的交互集</li>
+<li>对全数字化技术应用情况， 二次系统是变电站自动化系统的同义语</li>
+</ul>
+<h4 id="3-3-6-通讯系统-communication-system"><a href="#3-3-6-通讯系统-communication-system" class="headerlink" title="3.3.6 通讯系统 communication system"></a>3.3.6 通讯系统 communication system</h4><ul>
+<li>所有通信链接的互连集</li>
+</ul>
+<h3 id="3-4-装置-device"><a href="#3-4-装置-device" class="headerlink" title="3.4 装置 device"></a>3.4 装置 device</h3><ul>
+<li>为实现某一用途或完成某一功能而设计的设备部件</li>
+<li>在适当的设备相关模型中描述了与通信相关的属性</li>
+<li><em>例如：断路器、继电器，或者变电站计算机</em></li>
+</ul>
+<h4 id="3-4-1-智能电子设备（IED）intelligent-electronic-device"><a href="#3-4-1-智能电子设备（IED）intelligent-electronic-device" class="headerlink" title="3.4.1 智能电子设备（IED）intelligent electronic device"></a>3.4.1 智能电子设备（IED）intelligent electronic device</h4><ul>
+<li>由一个或多个处理器构成，且有能力接收外部资源和（或）向外部资源发送数据和（或）控制命令的装置</li>
+<li>智能电子设备 IED 是一个在一定 范围内，接口限定的条件下，能够完成一个或多个特定逻辑节点任务的<strong>实体</strong>。</li>
+<li><em>如，电子多功能仪表、数字式继电器、控制器等。</em></li>
+</ul>
+<h4 id="3-4-2-物理装置（PD）physical-device"><a href="#3-4-2-物理装置（PD）physical-device" class="headerlink" title="3.4.2 物理装置（PD）physical device"></a>3.4.2 物理装置（PD）physical device</h4><ul>
+<li>在本系列标准中，物理装置等同于智能电子设备。</li>
+</ul>
+<h3 id="3-5-逻辑节点（LN）logical-node"><a href="#3-5-逻辑节点（LN）logical-node" class="headerlink" title="3.5 逻辑节点（LN）logical node"></a>3.5 逻辑节点（LN）logical node</h3><ul>
+<li>逻辑节点是交换数据功能的最小部分，代表物理装置内的某项功能；或执行这一功能的某些操作。</li>
+<li>逻辑节点是一个由数据和方法定义的对象</li>
+<li>与一次设备相关的逻辑节点不是一次设备本身，而是它的<strong>智能部分</strong>或者是它在二次系统中的<strong>映象</strong>，</li>
+<li><em>例如，本地或远方 I/O 单元，智能传感器和执行器等。</em></li>
+</ul>
+<h3 id="3-6-连接-connection"><a href="#3-6-连接-connection" class="headerlink" title="3.6 连接 connection"></a>3.6 连接 connection</h3><ul>
+<li>实体间的链路</li>
+</ul>
+<h4 id="3-6-1-逻辑连接（LC）-logical-connection"><a href="#3-6-1-逻辑连接（LC）-logical-connection" class="headerlink" title="3.6.1 逻辑连接（LC） logical connection"></a>3.6.1 逻辑连接（LC） logical connection</h4><ul>
+<li>逻辑节点之间的通信连接</li>
+</ul>
+<h4 id="3-6-2-物理连接（PC）physical-connection"><a href="#3-6-2-物理连接（PC）physical-connection" class="headerlink" title="3.6.2 物理连接（PC）physical connection"></a>3.6.2 物理连接（PC）physical connection</h4><ul>
+<li>物理装置之间的通信连接</li>
+</ul>
+<h3 id="3-7-互换性-interchangeability"><a href="#3-7-互换性-interchangeability" class="headerlink" title="3.7 互换性 interchangeability"></a>3.7 互换性 interchangeability</h3><ul>
+<li>互换性指的是一种可以用同一厂家或不同厂家的装置进行替换</li>
+<li>互换装置具有相同的通信接口且至少提供相同功能，并且互换对系统的其它部分没有影响</li>
+<li>若功能差异可接受，互换也可能要求系统某处作出改变</li>
+<li>本标准<strong>不讨论</strong>功能和装置的标准化</li>
+</ul>
+<h3 id="3-8-互操作性-interoperability"><a href="#3-8-互操作性-interoperability" class="headerlink" title="3.8 互操作性 interoperability"></a>3.8 互操作性 interoperability</h3><ul>
+<li>互操作性是指同一厂家或不同厂家的两个或多个智能电子设备具有交换信息并使用这些信息进行正确协同操作的能力</li>
+<li>互操作性是互换性的先决条件</li>
+</ul>
+<h3 id="3-9-通信信息片-PICOM"><a href="#3-9-通信信息片-PICOM" class="headerlink" title="3.9 通信信息片 PICOM"></a>3.9 通信信息片 PICOM</h3><ul>
+<li>PICOM 通信信息片（Piece of Information for COMmunication）描述两个逻辑节点间、给定逻辑连接且具有给定通信属性的信息交换</li>
+<li>PICOM 也包含<strong>待传输的信息</strong>和<strong>要求的属性</strong>，但并不表示在通信网络上传输的数据的实际结构和格式</li>
+<li>逻辑点对点连接描述的是交换信息的源和目的地，而不是规定通信过程，因而多播和广播通信过程未排除在外</li>
+<li>详细可见 IEC61850-8 和 IEC61850-9 中查询到</li>
+</ul>
+<h3 id="3-10-间隔-bay"><a href="#3-10-间隔-bay" class="headerlink" title="3.10 间隔 bay"></a>3.10 间隔 bay</h3><ul>
+<li><p>变电站中紧密连接的，具有某些共同功能的部分，这些部分通常包含一个受保护的设备</p>
+</li>
+<li><p>间隔的识别区分对于维修（哪些部分断开同时对变电站其余部分影响最小）以及扩展计划（如 果增加一条新线路，哪些部分须增加）非常重要</p>
+</li>
+<li><p>由“间隔控制器”和 “间隔保护”的装置管理</p>
+</li>
+<li><p>这些装置的功能代表了整个变电站层下的附加逻辑控制层，称之为“<strong>间隔层</strong>”</p>
+</li>
+<li><p>但是物理上，间隔层并不必须存在于任何变电站，也就是说，可能完全没有“间隔控制器”这样物理装置。</p>
+</li>
+<li><blockquote>
+<p>例如：进线或者出线与母线之间的开关设备；由断路器、隔离刀闸及接地刀闸组成的母线连接设备；在两个不同电压等级母线之间的变压器及其相关开关设备； 2 1 1 接线中串；环型接线（断路器和两侧刀闸）中的虚拟间隔等。这些部分通常包含一个受保护 的设备，如变压器或末端线路，其中开关设备的控制，具有某些共同的约束条件，如联锁或者明确定义 的操作序列。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="3-11-串-diameter"><a href="#3-11-串-diameter" class="headerlink" title="3.11 串 diameter"></a>3.11 串 diameter</h3><p>该术语用于 3/2 接线。一个串指两条母线间一个完整的开关间隔，即 2 条线路和 3 个断路器和相关 隔离刀闸、地刀，电流互感器和电压互感器。对于操作、维护和扩展，串具有某些共同的功能关系。</p>
+<h3 id="3-12-功能层功能-level-functions"><a href="#3-12-功能层功能-level-functions" class="headerlink" title="3.12 功能层功能 level functions"></a>3.12 功能层功能 level functions</h3><ul>
+<li>与变电站自动化系统某些控制层有关的功能。</li>
+</ul>
+<h4 id="3-12-1-间隔层功能-bay-level-functions"><a href="#3-12-1-间隔层功能-bay-level-functions" class="headerlink" title="3.12.1 间隔层功能 bay level functions"></a>3.12.1 间隔层功能 bay level functions</h4><ul>
+<li>那些主要使用间隔数据，作用于间隔内一次设备的功能</li>
+<li>间隔功能的定义考虑了变电站一次结构中某种有意义的子结构（参见 3.10）；和有关这种子结构，二次系统中（变电站自动化）的某些局部功能或自动化（变电站自动化）</li>
+<li>这样一些功能如<strong>线路保护、间隔控制</strong>。它们在间隔层内，经逻辑接口 3 通信，经逻辑==接口 4== 和 ==接口5== 与过程层，即与远方 I/O，智能传感器和控制器通信。</li>
+</ul>
+<h4 id="3-12-2-过程层功能-process-level-function"><a href="#3-12-2-过程层功能-process-level-function" class="headerlink" title="3.12.2 过程层功能 process level function"></a>3.12.2 过程层功能 process level function</h4><ul>
+<li>与过程接口相关的所有功能，基本状态量和模拟量输入输出功能</li>
+<li>过程层功能经逻辑==接口 4== 和==接口 5==与间隔层通信。</li>
+<li>如，数据采集（包括采样）、发出控制命令</li>
+</ul>
+<h4 id="3-12-3-变电站层功能-station-level-functions"><a href="#3-12-3-变电站层功能-station-level-functions" class="headerlink" title="3.12.3 变电站层功能 station level functions"></a>3.12.3 变电站层功能 station level functions</h4><p>变电站层功能将变电站看作一个整体，分为<strong>过程有关变电站层功能</strong> 和 <strong>接口有关变电站层功能</strong>的两类变电站层功能。</p>
+<h5 id="3-12-4-过程有关变电站层功能-process-related-station-level-functions"><a href="#3-12-4-过程有关变电站层功能-process-related-station-level-functions" class="headerlink" title="3.12.4 过程有关变电站层功能 process related station level functions"></a>3.12.4 过程有关变电站层功能 process related station level functions</h5><ul>
+<li>使用一个以上的间隔数据或整个变电站数据，控制一个以上间隔的一次设备或整个变电站</li>
+<li>主要经==接口 8== 通信</li>
+<li>实例有：站级联锁、顺控、母线保护</li>
+</ul>
+<h5 id="3-12-5-接口有关变电站层功能-interface-related-substation-level-functions"><a href="#3-12-5-接口有关变电站层功能-interface-related-substation-level-functions" class="headerlink" title="3.12.5 接口有关变电站层功能 interface related substation level functions"></a>3.12.5 接口有关变电站层功能 interface related substation level functions</h5><ul>
+<li>表示变电站自动化系统 SAS 与就地变电站运行人员人机接口HMI (Human Machine Interface)、与远方控制中心接口TCI (telecontrol interface)  或与远方监视和维护工程师办公接口 TMI (telemonitoring interface)等功能</li>
+<li>通过==接口1==和==接口6==与间隔层通讯</li>
+<li>通过==接口7==和远方控制接口与外部接口通讯</li>
+<li>逻辑上，本地或远方人机接口并没有差别</li>
+<li>在变电站中，在变电站边界至少存在一个虚拟接口。对于 TCI 和 TMI 也同样。这些虚拟接口在某些实现中可 能作为代理服务器。（用来实现远程控制）</li>
+</ul>
+<h2 id="4-缩写"><a href="#4-缩写" class="headerlink" title="4. 缩写"></a>4. 缩写</h2><table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>英文</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GPS</td>
+<td>Global Positioning System (time source)</td>
+<td>全球定位系统（时间源）</td>
+</tr>
+<tr>
+<td>HMI</td>
+<td>Human Machine Interface</td>
+<td>人机接口</td>
+</tr>
+<tr>
+<td>I/O</td>
+<td>Input and Output contacts or channels (depending on context)</td>
+<td>输入/输出接点或通道（取决于具体内容）</td>
+</tr>
+<tr>
+<td>IED</td>
+<td>Intelligent Electronic Device</td>
+<td>智能电子设备</td>
+</tr>
+<tr>
+<td>IF</td>
+<td>(Serial) Interface</td>
+<td>串行）接口</td>
+</tr>
+<tr>
+<td>LAN</td>
+<td>Local Area Network</td>
+<td>局域网</td>
+</tr>
+<tr>
+<td>LC</td>
+<td>Logical Connection</td>
+<td>逻辑连接</td>
+</tr>
+<tr>
+<td>LN</td>
+<td>Logical Node</td>
+<td>逻辑节点</td>
+</tr>
+<tr>
+<td>MMS</td>
+<td>Manufacturing Message Specification</td>
+<td>制造报文规范</td>
+</tr>
+<tr>
+<td>NCC</td>
+<td>Network Control Center</td>
+<td>电网控制中心</td>
+</tr>
+<tr>
+<td>OSI</td>
+<td>Open System Interconnection</td>
+<td>开放式系统互连</td>
+</tr>
+<tr>
+<td>PC</td>
+<td>Physical Connection</td>
+<td>物理连接</td>
+</tr>
+<tr>
+<td>PD</td>
+<td>Physical Device</td>
+<td>物理装置</td>
+</tr>
+<tr>
+<td>PICOM</td>
+<td>Piece of Information for COMmunication</td>
+<td>通信信息片</td>
+</tr>
+<tr>
+<td>SAS</td>
+<td>Substation Automation System</td>
+<td>变电站自动化系统</td>
+</tr>
+<tr>
+<td>TCI</td>
+<td>TeleControl Interface (for example, to NCC)</td>
+<td>远动接口（如，电网控制中心）</td>
+</tr>
+<tr>
+<td>TMI</td>
+<td>TeleMonitoring Interface (for example, to engineers workplace)</td>
+<td>远方监视/维护接口（如，工程师办公地）</td>
+</tr>
+<tr>
+<td>FC</td>
+<td>Functional constraints</td>
+<td>功能限制</td>
+</tr>
+</tbody></table>
+<h2 id="5-变电站自动化系统的功能"><a href="#5-变电站自动化系统的功能" class="headerlink" title="5. 变电站自动化系统的功能"></a>5. 变电站自动化系统的功能</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><ul>
+<li>变电站自动化系统（SAS）的功能指必须在变电站执行的任务</li>
+<li>完成变电站的设备及其馈线<strong>监视、控制、保护</strong></li>
+<li>一些变电站自动化系统<strong>维护功能</strong>，即系统配置、通信管理或软件管理等功能。</li>
+</ul>
+<h3 id="5-2-功能和接口的逻辑分配"><a href="#5-2-功能和接口的逻辑分配" class="headerlink" title="5.2 功能和接口的逻辑分配"></a>5.2 功能和接口的逻辑分配</h3><ul>
+<li><strong>功能逻辑</strong>可以分配在三个不同的层面上（变电站层，变电站层、间隔层 / 单元层、过程层），层和接口如下图</li>
+</ul>
+<p><img src="./image-20200521150100229.png" alt="变电站自动化系统功能层和逻辑接口"></p>
+<blockquote>
+<p><strong>接口含义：</strong></p>
+<p>IF1 : 间隔层和变电站层之间<strong>保护数据</strong>交换</p>
+<p><em>IF2 : 间隔层与远方保护（不在本标准范围）之间<strong>保护数据</strong>交换</em></p>
+<p>IF3 : 间隔层内数据交换</p>
+<p>IF4 : 过程层和间隔层之间电压互感器 PT 和电流互感器 CT <strong>瞬时数据</strong>交换（尤其是采样）</p>
+<p>IF5 : 过程层和间隔层之间<strong>控制数据</strong>交换；</p>
+<p>IF6 : 间隔和变电站层之间<strong>控制数据</strong>交换；</p>
+<p>IF7 : 变电站层与远方工程师办公地数据交换；</p>
+<p>IF8 : 间隔之间直接数据交换（快速功能）；</p>
+<p>IF9 : 变电站层内数据交换；</p>
+<p><em>IF10 : 变电站（装置）和远方控制中心之间控制数据交换（不在本标准范围）</em></p>
+</blockquote>
+<p>  <em>过程层和间隔层部分功能可能集成在一个装置中，没有物理上分离</em></p>
+<ul>
+<li>变电站<strong>自动化系统的装置</strong>可能安装在三个不同的功能层上（变电站层、间隔层和过程层）<ol>
+<li>过程层装置典型是远方过程接口，如与过程总线连接的 I/O、智能传感器和控制器。如图 2</li>
+<li>间隔层装置由间隔内控制、保护和监视单元构成</li>
+<li>变电站层装置由配有数据库的站级计算机、操作场所、远方通信接口等组成。</li>
+</ol>
+</li>
+</ul>
+<h3 id="5-3-功能和接口的物理分配"><a href="#5-3-功能和接口的物理分配" class="headerlink" title="5.3 功能和接口的物理分配"></a>5.3 功能和接口的物理分配</h3><ul>
+<li><p>尽管逻辑和物理层面相似，但是没有将逻辑功能结构映射到物理设备结构的唯一方法</p>
+<blockquote>
+<p>站级的计算机可能作为客户机，仅具有人机接口、远方控制接口和远方监视接口等基本功能。所有其它的站级功能可能完全分布在间隔层的装置上。在这种情况下，接口 8 就是系统的主干。另一方面， 像全站范围联锁等所有站层的功能可能放在站级计算机中，既作为客户端又作为服务器。这样，接口 1 和 6 接替接口 8 的所有功能。实际上，也存在着许多其它可能解决方案。 </p>
+<p>间隔层的功能可能由专门的间隔层装置（保护单元、控制单元，有或无冗余配置）完成，或者由保护和控制组合单元完成。某些功能可能由功能自由分配支持，物理上下移到过程层。 </p>
+<p>若没有串行接口 4 和 5，则由间隔层装置实现过程层功能。串行接口 4 和 5 实现仅包含远方 I/O 装 置功能，即智能传感器和控制器，过程层上已提供某些间隔层功能。</p>
+</blockquote>
+</li>
+<li><p>逻辑接口可能作为专用物理接口实现，2 个或多个逻辑接口也可组合形成一个公用物理接口。另外， 这些接口可能组合形成一个或多个物理局域网络。对这些物理接口的要求依赖于功能如何分布到层和各个装置。</p>
+</li>
+</ul>
+<h3 id="5-4-接口的任务"><a href="#5-4-接口的任务" class="headerlink" title="5.4 接口的任务"></a>5.4 接口的任务</h3><ul>
+<li>变电站并不必须具备所有接口，接口编号有助于确定变电站所需要的接口类型以及数据流计算</li>
+<li>众多接口允许方便地定义两个重要的局域网或总线系统<ul>
+<li>接口 1、6、3、9、8 组合成变电站/间隔内总线，连接变电站层与间隔层以及不同的间隔</li>
+<li>接口 4、5 组合成过程总线，它连接间隔层 与过程层以及不同过程层的 IED。过程总线常仅限定在单个间隔。</li>
+<li>如果过程总线扩展到多个间隔，它可 接替控制接口 8 的任务，至少提供原始数据</li>
+</ul>
+</li>
+<li>基于通信性能要求的报文类型可能分布在不同的接口中</li>
+</ul>
+<h2 id="6-目标和要求"><a href="#6-目标和要求" class="headerlink" title="6. 目标和要求"></a>6. 目标和要求</h2><h3 id="6-1-互操作性-Interoperability"><a href="#6-1-互操作性-Interoperability" class="headerlink" title="6.1 互操作性 Interoperability"></a>6.1 互操作性 Interoperability</h3><ul>
+<li>对于来自不同制造商的装置，互操作性考虑下列几个方面<ol>
+<li>装置应可使用通用的协议连接到通用的总线上（句法理解）</li>
+<li>装置应理解别的装置提供的信息（语义理解）</li>
+<li>若有要求（分布功能），装置应共同完成公共的或相互关联的功能</li>
+</ol>
+</li>
+<li>还应满足一些静态设计要求和动态交互要求</li>
+</ul>
+<h3 id="6-2-静态设计要求-Static-design-requirements"><a href="#6-2-静态设计要求-Static-design-requirements" class="headerlink" title="6.2 静态设计要求 Static design requirements"></a>6.2 静态设计要求 Static design requirements</h3><p><em>系统结构设计要求</em></p>
+<ol>
+<li>通信应支持功能自由分配到装置上；通信不限制特定设备，而设备也不必全部实现功能</li>
+<li>变电站自动化系统（SAS）的功能及其通信行为应独立于设备进行描述</li>
+<li>仅应在识别要交换的信息时对功能进行描述</li>
+<li>设备无关的分布式功能的交互应通过它们之间的逻辑接口来描述， 这些逻辑接口可以自由分配给物理接口或LAN</li>
+<li>满足现有的功能和通信要求，并保持对新需求开放</li>
+</ol>
+<h3 id="6-3-动态交互要求-Dynamic-interaction-requirements"><a href="#6-3-动态交互要求-Dynamic-interaction-requirements" class="headerlink" title="6.3 动态交互要求 Dynamic interaction requirements"></a>6.3 动态交互要求 Dynamic interaction requirements</h3><p><em>通信信息内容要求</em></p>
+<ol>
+<li>IEC 61850 标准应定义待传输的<strong>通用信息</strong>，定义支持变电站自动化系统已有功能和未来扩展功能的<strong>通信性能</strong>，给出功能扩展准则</li>
+<li>信息交换数据应同所有相关属性一起定义（参见 PICOM）</li>
+<li>被交换的数据应携带全部属性以便数据接收者明确理解；</li>
+<li>应定义和保证在各种情况下，被交换数据整体传输时间是可以接受的。</li>
+</ol>
+<h3 id="6-4-响应行为要求-Response-behavior-requirements"><a href="#6-4-响应行为要求-Response-behavior-requirements" class="headerlink" title="6.4 响应行为要求 Response behavior requirements"></a>6.4 响应行为要求 Response behavior requirements</h3><p><em>接收节点中应用的响应要求</em></p>
+<ol>
+<li>接收节点的反应必须满足所执行的分布功能整体要求</li>
+<li>在任何降级的情况下（发生错误消息的情况下），必须指定功能的基本行为</li>
+<li>应提供适当的品质属性，与数据一同传输</li>
+</ol>
+<h3 id="6-5-实现互操作性-Approach-to-interoperability"><a href="#6-5-实现互操作性-Approach-to-interoperability" class="headerlink" title="6.5 实现互操作性 Approach to interoperability"></a>6.5 实现互操作性 Approach to interoperability</h3><ul>
+<li>标识和分类变电站执行的功能，清晰地定义数据交换的要求</li>
+<li>自由分配和分配的功能的互操作性意味着通信实体中功能的适当分解</li>
+<li>建立适当的数据和通信服务模型（本系列标准第 7 部分），明确地定义这个模型到现代通信协议栈的映射（本系列标准第 8、9 部分）。</li>
+</ul>
+<h3 id="6-6-一致性测试要求-Conformance-test-requirements"><a href="#6-6-一致性测试要求-Conformance-test-requirements" class="headerlink" title="6.6 一致性测试要求 Conformance test requirements"></a>6.6 一致性测试要求 Conformance test requirements</h3><ul>
+<li>把装置作为系统的 一个元件，验证其通信性能与 IEC61850 标准互操作性规范的一致性</li>
+<li>一致性测试定义在 IEC61850 系列标准第 10 部分中给出</li>
+</ul>
+<h2 id="7-功能定义规范"><a href="#7-功能定义规范" class="headerlink" title="7 功能定义规范"></a>7 功能定义规范</h2><p>要为每一个功能提供一个标识</p>
+<ul>
+<li><strong>功能说明</strong>，包括功能分解成逻辑节点</li>
+<li><strong>逻辑节点说明</strong>，包括相互交换 PICOM 信息</li>
+<li><strong>PICOM 描述</strong>，包括其属性</li>
+</ul>
+<h3 id="7-1-功能说明"><a href="#7-1-功能说明" class="headerlink" title="7.1 功能说明"></a>7.1 功能说明</h3><ul>
+<li>功能任务</li>
+<li>功能启动原则</li>
+<li>功能结果或影响</li>
+<li>功能性能</li>
+<li>功能分解（说明功能怎么使用逻辑节点分解，以及有多少个典型分解集存在。因为通信是基于逻辑节点的，所以这点很重要）</li>
+<li>与其他功能单元之间的交互</li>
+</ul>
+<h3 id="7-2-逻辑节点说明"><a href="#7-2-逻辑节点说明" class="headerlink" title="7.2 逻辑节点说明"></a>7.2 逻辑节点说明</h3><ul>
+<li>分组（常用的应用领域）</li>
+<li>简短的功能说明</li>
+<li>如果可能，IEEE 装置功能的编号（仅用于保护有关的LN）</li>
+<li>IEC61850 文档中用到的缩写</li>
+<li>功能和逻辑节点的关系（表格）以及功能描述</li>
+<li>交互的PICOM（表格）</li>
+</ul>
+<h3 id="7-3-PICOM说明"><a href="#7-3-PICOM说明" class="headerlink" title="7.3 PICOM说明"></a>7.3 PICOM说明</h3><p>提供下列信息（第十章）</p>
+<ul>
+<li>语法</li>
+<li>逻辑点对点连接</li>
+<li>性能要求</li>
+<li>数据类型</li>
+</ul>
+<h2 id="8-功能分类"><a href="#8-功能分类" class="headerlink" title="8 功能分类"></a>8 功能分类</h2><h3 id="8-1-系统支持功能"><a href="#8-1-系统支持功能" class="headerlink" title="8.1 系统支持功能"></a>8.1 系统支持功能</h3><ul>
+<li>网络管理</li>
+<li>时间同步</li>
+<li>物理装置自检</li>
+</ul>
+<h3 id="8-2-系统配置或维护功能"><a href="#8-2-系统配置或维护功能" class="headerlink" title="8.2 系统配置或维护功能"></a>8.2 系统配置或维护功能</h3><ul>
+<li>节点标识</li>
+<li>软件管理</li>
+<li>配置管理</li>
+<li>逻辑节点运行模式控制</li>
+<li>设定</li>
+<li>测试模式</li>
+<li>系统安全管理</li>
+</ul>
+<h3 id="8-3-运行或控制功能"><a href="#8-3-运行或控制功能" class="headerlink" title="8.3 运行或控制功能"></a>8.3 运行或控制功能</h3><ul>
+<li>访问安全管理</li>
+<li>控制</li>
+<li>指示瞬时变化的操作</li>
+<li>同期分合（定点分合）</li>
+<li>参数集切换</li>
+<li>告警管理</li>
+<li>事件管理和记录</li>
+<li>数据检索</li>
+<li>扰动 / 故障记录检索</li>
+</ul>
+<h3 id="8-4-就地过程自动化"><a href="#8-4-就地过程自动化" class="headerlink" title="8.4 就地过程自动化"></a>8.4 就地过程自动化</h3><ul>
+<li>保护功能（通用）</li>
+<li>距离保护（保护功能示例）</li>
+<li>间隔联锁</li>
+<li>测量、计量和电能质量监视</li>
+</ul>
+<h3 id="8-5-分布自动化支持功能"><a href="#8-5-分布自动化支持功能" class="headerlink" title="8.5 分布自动化支持功能"></a>8.5 分布自动化支持功能</h3><ul>
+<li><p>全站范围联锁</p>
+</li>
+<li><p>分散同期检查</p>
+</li>
+</ul>
+<h3 id="8-6-分布过程自动化功能"><a href="#8-6-分布过程自动化功能" class="headerlink" title="8.6 分布过程自动化功能"></a>8.6 分布过程自动化功能</h3><ul>
+<li>断路器失灵</li>
+<li>自适应保护（通用）</li>
+<li>反向闭锁（示例，自适应保护功能）</li>
+<li>负荷减载 </li>
+<li>负荷恢复</li>
+<li>电压和无功功率控制</li>
+<li>馈线切换和变压器转供</li>
+<li>自动顺控</li>
+</ul>
+<h2 id="9-逻辑节点概念"><a href="#9-逻辑节点概念" class="headerlink" title="9 逻辑节点概念"></a>9 逻辑节点概念</h2><h3 id="9-1-逻辑节点和逻辑连接"><a href="#9-1-逻辑节点和逻辑连接" class="headerlink" title="9.1 逻辑节点和逻辑连接"></a>9.1 逻辑节点和逻辑连接</h3><ul>
+<li>为了实现功能自由分布和分配，所有功能被分解为逻辑节点</li>
+<li>这些节点可以分布在一个或多个物理装置上</li>
+<li>存在特殊的逻辑节点来反映物理装置本身，称为<strong>LLN0 逻辑节点</strong></li>
+<li>逻辑节点间通过逻辑连接（LC）相连</li>
+</ul>
+<p><img src="./image-20200522140623625.png" alt="逻辑节点和逻辑连接概念"></p>
+<blockquote>
+<p>逻辑节点分配给功能（F）和物理装置（PD）。逻辑节点通过逻辑连接（LC）互连， 物理装置则通过物理连接（PC）实现互连。逻辑节点是物理装置的一部分，逻辑连接则是物理连接的一部分。 专用于物理装置的逻辑节点“装置”图示为 LN0（在上图中介绍的逻辑节点四字母编码中，该逻辑节点 记为 LLN0）</p>
+</blockquote>
+<h3 id="9-2-系统形式描述的需要"><a href="#9-2-系统形式描述的需要" class="headerlink" title="9.2 系统形式描述的需要"></a>9.2 系统形式描述的需要</h3><ul>
+<li>通信系统的静态结构描述数据从哪儿来（发送逻辑节点）到哪儿去（接收逻辑节点），通信系统的静态结构必须在系统建立阶段设计或议定</li>
+<li>通信管理提供严格的装置和系统形式描述。由本系列标准第 6 部分（IEC61850-6）变电站配置语言规定了这种描述</li>
+</ul>
+<h3 id="9-3-逻辑节点行为的要求"><a href="#9-3-逻辑节点行为的要求" class="headerlink" title="9.3 逻辑节点行为的要求"></a>9.3 逻辑节点行为的要求</h3><ul>
+<li>每个接收LN都应知道需要什么样的数据以完成它的任务（检查数据的完整性，有效性，并具有适当的品质）</li>
+<li>对于SAS，最重要的有效性准则是数据的时效</li>
+<li>发送LN是原始数据源，保持着数据的最新值，并设置大部分数据质量属性；接收LN按照相关功能处理这些数据，检查是否过时</li>
+<li>分布的逻辑节点之间互操作通信要求简化为对可得到或需要的数据标准化，以及第 7 部分（IEC61850-7-X）中定义的适当数据模型中数据有效性属性赋值</li>
+<li>必须正确定义LN在正常模式和降级模式（数据有错误时）下的行为</li>
+<li>LN的详细建模位于第七部分</li>
+</ul>
+<h3 id="9-4-通用功能分解为逻辑节点例子"><a href="#9-4-通用功能分解为逻辑节点例子" class="headerlink" title="9.4 通用功能分解为逻辑节点例子"></a>9.4 通用功能分解为逻辑节点例子</h3><p>下图给出了三个例子</p>
+<ul>
+<li>同期断路器分合</li>
+<li>距离保护</li>
+<li>过电流保护</li>
+</ul>
+<p>这些功能被分解为若干逻辑节点，所分配的物理装置用编号加以说明</p>
+<ol>
+<li>变电站计算机</li>
+<li>同期分合装置（Synchronized switching device）</li>
+<li>距离保护单元，集成过流保护功能 </li>
+<li>间隔控制单元</li>
+<li>电流互感器（Current transformer.）</li>
+<li>电压互感器（Voltage transformer）</li>
+<li>母线电压互感器（Busbar voltage transformer）</li>
+</ol>
+<p><em>包含在物理装置中的逻辑节点“装置”（LLN0）没有显示出来</em></p>
+<p><img src="./image-20200522153805869.png" alt="逻辑节点概念应用实例*"></p>
+<h2 id="10-PICOM概念"><a href="#10-PICOM概念" class="headerlink" title="10 PICOM概念"></a>10 PICOM概念</h2><p>用来描述逻辑节点之间信息交换，说明了交换信息（内容）和通信要求（属性）。PICOM 的各个部分或属性如下：</p>
+<ul>
+<li><strong>数据</strong>，信息内容和功能所用标识（语义）</li>
+<li><strong>类型</strong>，数据的结构</li>
+<li><strong>性能</strong>，即数据允许的传输时间（由性能类定义）、数据的完整性和数据传输的原因和方法（例如： 周期传输、事件驱动、请求发送）</li>
+<li><strong>逻辑连接</strong>，发送LN和接收LN</li>
+</ul>
+<h3 id="10-1-PICOM-属性"><a href="#10-1-PICOM-属性" class="headerlink" title="10.1 PICOM 属性"></a>10.1 PICOM 属性</h3><p>依据用途分，分为三类</p>
+<h4 id="10-1-1-任一报文都要用的-PICOM-属性"><a href="#10-1-1-任一报文都要用的-PICOM-属性" class="headerlink" title="10.1.1 任一报文都要用的 PICOM 属性"></a>10.1.1 任一报文都要用的 PICOM 属性</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值</td>
+<td>信息本身的值。视需要。</td>
+</tr>
+<tr>
+<td>名字</td>
+<td>数据标识</td>
+</tr>
+<tr>
+<td>源</td>
+<td>信号发出的逻辑节点</td>
+</tr>
+<tr>
+<td>终点</td>
+<td>接收信号的逻辑节点</td>
+</tr>
+<tr>
+<td>时间标记</td>
+<td>标识数据时效的绝对时间。视需要。</td>
+</tr>
+<tr>
+<td>传送优先级</td>
+<td>用于：1.逻辑节点的输入队列（若多于一个）2.对于中间逻辑节点，逻辑节点输入/输出的重发次序</td>
+</tr>
+<tr>
+<td>时间要求</td>
+<td>循环时间或整体传输时间，通过时间标记来检查数据有效性。</td>
+</tr>
+</tbody></table>
+<h4 id="10-1-2-仅在配置时用的PICOM属性"><a href="#10-1-2-仅在配置时用的PICOM属性" class="headerlink" title="10.1.2 仅在配置时用的PICOM属性"></a>10.1.2 仅在配置时用的PICOM属性</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>传送的值（见 10.1.1）</td>
+<td>测试或缺省值。视需要。</td>
+</tr>
+<tr>
+<td>传送属性（见 10.1.1）</td>
+<td></td>
+</tr>
+<tr>
+<td>精度</td>
+<td>类或值</td>
+</tr>
+<tr>
+<td>信息标记</td>
+<td>时间标记或元时间标记（绝大多数数据使用时间标记以便有效性检查）</td>
+</tr>
+<tr>
+<td>类型</td>
+<td>模拟量、开关量、文件等</td>
+</tr>
+<tr>
+<td>种类</td>
+<td>告警、事件、状态、命令等</td>
+</tr>
+<tr>
+<td>重要性</td>
+<td>高、中、低</td>
+</tr>
+<tr>
+<td>数据完整性</td>
+<td>传送数据的重要性，供检验和重传用（详细格式要求见第 14 章）</td>
+</tr>
+</tbody></table>
+<h4 id="10-1-3-仅用于数据流计算的-PICOM-属性"><a href="#10-1-3-仅用于数据流计算的-PICOM-属性" class="headerlink" title="10.1.3 仅用于数据流计算的 PICOM 属性"></a>10.1.3 仅用于数据流计算的 PICOM 属性</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>传送或配置值（见 10.1.1）</td>
+<td>测试或缺省值。视需要。</td>
+</tr>
+<tr>
+<td>传送或配置属性（见 10.1.1）</td>
+<td></td>
+</tr>
+<tr>
+<td>格式</td>
+<td>数据类型（整数、无符号整数、实数、布尔值、位串、BCD 码等）</td>
+</tr>
+<tr>
+<td>长度</td>
+<td>数据的长度（i 比特，j 字节，k 字）</td>
+</tr>
+<tr>
+<td>运行状态</td>
+<td>参见具体情况</td>
+</tr>
+</tbody></table>
+<h3 id="10-2-PICOM-和数据模型"><a href="#10-2-PICOM-和数据模型" class="headerlink" title="10.2 PICOM 和数据模型"></a>10.2 PICOM 和数据模型</h3><ul>
+<li>通过 PICOM 描述的信息交换是基于由逻辑节点提供的数据。通常，这些数据是在源的数据模型中定义的（参见IEC 81850-7-4）</li>
+</ul>
+<hr>
+<h2 id="11-逻辑节点列表"><a href="#11-逻辑节点列表" class="headerlink" title="11 逻辑节点列表"></a>11 逻辑节点列表</h2><p>大多数功能至少由三个逻辑节点组成：</p>
+<ul>
+<li>核心功能逻辑节点</li>
+<li>过程接口逻辑节点</li>
+<li>HMI逻辑节点</li>
+</ul>
+<p><strong>例子</strong>：保护功能</p>
+<p>若谈论某一功能，例如“保护功能”，通常仅指其核心功能</p>
+<p><img src="./image-20200522163107111.png" alt="由3个逻辑节点构成的保护功能"></p>
+<blockquote>
+<p>3 个逻辑节点</p>
+<ul>
+<li><code>IHMI</code>，运行人员接口，位于站级计算机</li>
+<li><code>P..</code>，保护，位于保护设备</li>
+<li><code>XCBR</code>，待跳闸的断路器，位于远方控制接口</li>
+</ul>
+</blockquote>
+<p><strong>逻辑节点类型(头字母作为标识)：</strong><br><code>A...</code> 自动控制<br><code>C...</code> 监控<br><code>G...</code> 通用功能<br><code>I...</code> 接口和存档<br><code>L...</code> 系统逻辑<br><code>M...</code> 计量和测量<br><code>P...</code> 保护功能<br><code>R...</code> 保护相关功能<br><code>S...</code> 传感器和监视<br><code>T...</code> 仪用互感器<br><code>X...</code> 开关设备<br><code>Y...</code> 变压器及相关<br><code>Z...</code> 其他设备</p>
+<p>详细解释可以查看附录的表 H.2</p>
+<h3 id="11-1-保护逻辑节点-Logical-Nodes-for-protection-functions"><a href="#11-1-保护逻辑节点-Logical-Nodes-for-protection-functions" class="headerlink" title="11.1 保护逻辑节点 Logical Nodes for protection functions"></a>11.1 保护逻辑节点 Logical Nodes for protection functions</h3><h4 id="11-1-1-保护-Protection"><a href="#11-1-1-保护-Protection" class="headerlink" title="11.1.1 保护 Protection"></a>11.1.1 保护 Protection</h4><ul>
+<li><p><code>PTEF</code> 瞬时接地故障保护</p>
+</li>
+<li><p><code>PZSU</code> 零速和欠速保护</p>
+</li>
+<li><p><code>PDIS</code> 距离保护</p>
+</li>
+<li><p><code>PVPH</code> 每赫兹电压保护</p>
+</li>
+<li><p><code>PTUV</code> （定时）欠电压保护</p>
+</li>
+<li><p><code>PDPR</code> 方向/反向功率保护</p>
+</li>
+<li><p><code>PWDE</code> 基于功率测量原理的接地补偿系统接地方向故障保护</p>
+</li>
+<li><p><code>PUCP</code> 欠电流/欠功率保护</p>
+</li>
+<li><p><code>PUEX</code> 失励/欠励磁保护</p>
+</li>
+<li><p><code>PPBR</code> 反相或相平衡电流保护</p>
+</li>
+<li><p><code>PPBV</code> 相序或相平衡电压保护</p>
+</li>
+<li><p><code>PMSU</code> 电动机启动保护</p>
+</li>
+<li><p><code>PTTR</code> 过热保护</p>
+</li>
+<li><p><code>PROL</code> 转子热保护</p>
+</li>
+<li><p><code>PSOL</code> 定子热保护</p>
+</li>
+<li><p><code>PIOC</code> 瞬时过流或增量保护</p>
+</li>
+<li><p><code>PTOC</code> 交流定时过流保护</p>
+</li>
+<li><p><code>PVOC</code> 定时过电流保护</p>
+</li>
+<li><p><code>PPFR</code> 功率因数保护</p>
+</li>
+<li><p><code>PTOV</code> （定时）过电压保护</p>
+</li>
+<li><p><code>PDOV</code> 直流过压保护</p>
+</li>
+<li><p><code>PVCB</code> 电压/电流平衡保护</p>
+</li>
+<li><p><code>PHIZ</code> 接地故障保护/接地检测</p>
+</li>
+<li><p><code>PREF</code> 转子接地保护</p>
+</li>
+<li><p><code>PSEF</code> 定子接地保护</p>
+</li>
+<li><p><code>PITF</code> 匝间故障保护</p>
+</li>
+<li><p><code>PDOC</code> 交流方向过电流保护</p>
+</li>
+<li><p><code>PDEF</code> 方向接地故障保护</p>
+</li>
+<li><p><code>PDCO</code> 直流定时过流保护</p>
+</li>
+<li><p><code>PPAM</code> 相角或失步保护</p>
+</li>
+<li><p><code>PFRQ</code> 频率保护</p>
+</li>
+<li><p><code>PDIF</code> 差动保护</p>
+</li>
+<li><p><code>PPDF</code> 比相保护</p>
+</li>
+<li><p><code>PLDF</code> 线路差动保护 </p>
+</li>
+<li><p><code>PNDF</code> 不完全接地保护</p>
+</li>
+<li><p><code>PTDF</code> 变压器差动</p>
+</li>
+<li><p><code>PBDF</code> 母线保护(2)</p>
+</li>
+<li><p><code>PMDF</code> 电动机差动保护(3)</p>
+</li>
+<li><p><code>PGDF</code> 发电机差动保护(3)</p>
+</li>
+</ul>
+<p>保护逻辑节点的通信结构如下</p>
+<p><img src="./image-20200525141854174.png" alt="主要保护类型的逻辑节点的基本通信链路"></p>
+<blockquote>
+<ul>
+<li><p>数据和过程（开关设备 XCBR、电流互感器 TCTR、电压互感器 TVTR）相关的通信分别使用接口4（接收）和接口5（发送）</p>
+</li>
+<li><p>保护LN内部逻辑同层通信使用接口3或接口8</p>
+</li>
+<li><p>和类似IHMI的逻辑节点通信使用接口1</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="11-1-2-保护相关逻辑节点-Logical-Nodes-for-protection-related-functions"><a href="#11-1-2-保护相关逻辑节点-Logical-Nodes-for-protection-related-functions" class="headerlink" title="11.1.2 保护相关逻辑节点 Logical Nodes for protection related functions"></a>11.1.2 保护相关逻辑节点 Logical Nodes for protection related functions</h4><ul>
+<li><code>RDRE</code> 扰动记录（间隔 / 过程层：采集）</li>
+<li><code>RDRS</code> 扰动记录（变电站层：评估）</li>
+<li><code>RREC</code> 自动重合闸</li>
+<li><code>RBRF</code> 断路器失灵</li>
+<li><code>RCPW</code> 载波或导引线保护</li>
+<li><code>RFLO</code> 故障定位</li>
+<li><code>RSYN</code> 同期或同期检查</li>
+<li><code>RPSB</code> 电网震荡闭锁</li>
+</ul>
+<h3 id="11-2-监视控制逻辑节点-Logical-Nodes-for-control"><a href="#11-2-监视控制逻辑节点-Logical-Nodes-for-control" class="headerlink" title="11.2 监视控制逻辑节点 Logical Nodes for control"></a>11.2 监视控制逻辑节点 Logical Nodes for control</h3><h4 id="11-2-1-控制-Control"><a href="#11-2-1-控制-Control" class="headerlink" title="11.2.1 控制 Control"></a>11.2.1 控制 Control</h4><ul>
+<li><code>CALH</code> 报警处理</li>
+<li><code>CSWI</code> 开关控制器</li>
+<li><code>CPOW</code> 定点分合断路器控制器</li>
+<li><code>CILO</code> 连锁功能（全站 / 间隔层）</li>
+</ul>
+<h4 id="11-2-2-接口、日志和存档-Interfaces-logging-and-archiving"><a href="#11-2-2-接口、日志和存档-Interfaces-logging-and-archiving" class="headerlink" title="11.2.2 接口、日志和存档  Interfaces, logging, and archiving"></a>11.2.2 接口、日志和存档  Interfaces, logging, and archiving</h4><ul>
+<li><code>IHMI</code> 操作员接口（间隔层当地控制，变电站层控制）</li>
+<li><code>ITCI</code> 远方控制接口</li>
+<li><code>ITMI</code> 远方监视接口</li>
+<li><code>IARC</code> 存档</li>
+</ul>
+<h4 id="11-2-3-自动过程控制-Automatic-process-control"><a href="#11-2-3-自动过程控制-Automatic-process-control" class="headerlink" title="11.2.3 自动过程控制 Automatic process control"></a>11.2.3 自动过程控制 Automatic process control</h4><ul>
+<li><code>ATCC</code> 自动分接头控制</li>
+<li><code>AVCO</code> 自动电压控制</li>
+<li><code>ARCO</code> 无功控制</li>
+<li><code>ANCR</code> 接地故障补偿控制（消弧线圈控制）</li>
+<li><code>AZVT</code> 零电压跳闸</li>
+<li><code>GAPC</code> 自动过程控制（顺控，未知功能等通用可编程逻辑节点）</li>
+</ul>
+<h4 id="11-2-4-计量和测量-Metering-and-measurement"><a href="#11-2-4-计量和测量-Metering-and-measurement" class="headerlink" title="11.2.4 计量和测量 Metering and measurement"></a>11.2.4 计量和测量 Metering and measurement</h4><ul>
+<li><code>MMXU</code> 测量（运行用）</li>
+<li><code>MMTR</code> 测量（商用）</li>
+<li><code>MSQI</code> 序值和不平衡（稳定用）</li>
+<li><code>MHAI</code> 谐波和间谐波（电能质量）</li>
+</ul>
+<h3 id="11-3-物理装置"><a href="#11-3-物理装置" class="headerlink" title="11.3 物理装置"></a>11.3 物理装置</h3><h4 id="11-3-1-公共标识和性能-Common-identification-and-behavior"><a href="#11-3-1-公共标识和性能-Common-identification-and-behavior" class="headerlink" title="11.3.1 公共标识和性能 Common identification and behavior"></a>11.3.1 公共标识和性能 Common identification and behavior</h4><ul>
+<li><code>LLN0</code> 逻辑节点装置<ul>
+<li>该逻辑节点包含有物理装置中智能电子设备相关数据，与其所包含所有逻辑节点无关（装置标识/铭牌、装置自检报文等）</li>
+<li>需要的话，该逻辑节点也用于对物理装置包含的所有逻辑节点共 同的任务（模式设定、整定等）</li>
+</ul>
+</li>
+</ul>
+<h3 id="11-4-系统和装置安全-System-and-device-security"><a href="#11-4-系统和装置安全-System-and-device-security" class="headerlink" title="11.4 系统和装置安全 System and device security"></a>11.4 系统和装置安全 System and device security</h3><ul>
+<li><code>GSAL</code> 通用安全应用<ul>
+<li>含有违反安全的日志</li>
+</ul>
+</li>
+</ul>
+<h3 id="11-5-一次装备相关逻辑节点-LNs-related-to-primary-equipment"><a href="#11-5-一次装备相关逻辑节点-LNs-related-to-primary-equipment" class="headerlink" title="11.5 一次装备相关逻辑节点 LNs related to primary equipment"></a>11.5 一次装备相关逻辑节点 LNs related to primary equipment</h3><ul>
+<li>开关设备有关的逻辑节点代表电网</li>
+<li>由变电站自动化系统通过输入/输出看到的外部电网</li>
+</ul>
+<h4 id="11-5-1-开关装置和变电站部分-Switching-devices-and-substation-parts"><a href="#11-5-1-开关装置和变电站部分-Switching-devices-and-substation-parts" class="headerlink" title="11.5.1 开关装置和变电站部分 Switching devices and substation parts"></a>11.5.1 开关装置和变电站部分 Switching devices and substation parts</h4><ul>
+<li><p><code>XCBR</code> 逻辑节点“断路器”（包含各种断路器，即能切断短路电流的开关）</p>
+<ul>
+<li>包括具有 / 不具有定点分合能力的断路器</li>
+</ul>
+</li>
+<li><p><code>XSWI</code> 逻辑节点“开关”（所有不能够断开短路电流的开关种类）</p>
+<ul>
+<li>负荷开关</li>
+<li>隔离开关</li>
+<li>接地开关</li>
+<li>高速接地开关</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>上述逻辑节点使用上述 <strong>开关装置</strong> 和相关设备的全部：</p>
+<ul>
+<li><strong>输入</strong></li>
+<li><strong>输出</strong></li>
+<li>在变电站自动化系统(SAS)中的<strong>通信相关性能</strong>（communication relevant behavior in the SAS）</li>
+</ul>
+<p>表示上述设备（断路器 / 开关）</p>
+</blockquote>
+<h4 id="11-5-2-传感器监视逻辑节点-LN-for-monitoring-by-sensors"><a href="#11-5-2-传感器监视逻辑节点-LN-for-monitoring-by-sensors" class="headerlink" title="11.5.2 传感器监视逻辑节点 LN for monitoring by sensors"></a>11.5.2 传感器监视逻辑节点 LN for monitoring by sensors</h4><ul>
+<li><code>SIMS</code> 绝缘介质测量单元（监视绝缘介质，比如空气开关GIS的气体密度，压力，温度等）</li>
+<li><code>SARC</code> 电弧监视和诊断（GIS有关气体分合电弧等）</li>
+<li><code>SPDC</code> 局部放电的监控和诊断（GIS局部放电特征）</li>
+</ul>
+<blockquote>
+<p>上述逻辑节点使用上述 <strong>传感器</strong> 和相关设备的全部：</p>
+<ul>
+<li><strong>输入</strong></li>
+<li>在变电站自动化系统(SAS)中的<strong>通信相关性能</strong>（communication relevant behavior in the SAS）</li>
+</ul>
+<p>表示上述设备（传感器）</p>
+</blockquote>
+<h4 id="11-5-3-仪用互感器-Instrument-transformers"><a href="#11-5-3-仪用互感器-Instrument-transformers" class="headerlink" title="11.5.3 仪用互感器 Instrument transformers"></a>11.5.3 仪用互感器 Instrument transformers</h4><ul>
+<li><code>TCTR</code> 电流互感（每项一个实例）</li>
+<li><code>TYTR</code> 电压互感（每项一个实例）</li>
+</ul>
+<blockquote>
+<p>上述逻辑节点使用上述 <strong>互感器</strong> 和相关设备的全部：</p>
+<ul>
+<li><strong>数据</strong></li>
+<li><strong>相关定值</strong>（如果使用的话）</li>
+<li>在变电站自动化系统(SAS)中的<strong>通信相关性能</strong>（communication relevant behavior in the SAS）</li>
+</ul>
+<p>表示上述设备（电流互感 / 电压互感）</p>
+</blockquote>
+<h4 id="11-5-4-电力变压器-Power-transformers"><a href="#11-5-4-电力变压器-Power-transformers" class="headerlink" title="11.5.4 电力变压器 Power transformers"></a>11.5.4 电力变压器 Power transformers</h4><ul>
+<li><code>YPTR</code> 电力变压器</li>
+<li><code>YLTC</code> 分接开关</li>
+<li><code>YEFN</code> 接地故障补偿（消弧线圈）</li>
+<li><code>YPSN</code> 分流</li>
+</ul>
+<blockquote>
+<p>上述逻辑节点使用上述 <strong>变压器</strong> 和相关设备的全部：</p>
+<ul>
+<li><strong>输入</strong></li>
+<li><strong>输出</strong></li>
+<li><strong>相关设定值</strong></li>
+<li>在变电站自动化系统(SAS)中的<strong>通信相关性能</strong>（communication relevant behavior in the SAS）</li>
+</ul>
+<p>表示上述设备（电力变压器）</p>
+</blockquote>
+<h4 id="11-5-5-更多电力设备-Further-power-system-equipment"><a href="#11-5-5-更多电力设备-Further-power-system-equipment" class="headerlink" title="11.5.5 更多电力设备 Further power system equipment"></a>11.5.5 更多电力设备 Further power system equipment</h4><ul>
+<li><code>ZAXN</code> 辅助网络</li>
+<li><code>ZBAT</code> 电池（提供电池数据，控制充放电）</li>
+<li><code>ZBSH</code> 套管</li>
+<li><code>ZCAB</code> 电力电缆</li>
+<li><code>ZCAP</code> 电容器组</li>
+<li><code>ZCON</code> 转换器</li>
+<li><code>ZGEN</code> 发电机</li>
+<li><code>ZGIL</code> 气体绝缘线路（GIL）</li>
+<li><code>ZLIN</code> 架空电力线</li>
+<li><code>ZMOT</code> 电动机</li>
+<li><code>ZREA</code> 电抗器</li>
+<li><code>ZRRC</code> 旋转无功元件</li>
+<li><code>ZSAR</code> 浪涌抑制器</li>
+<li><code>ZTCF</code> （可控硅控制）频率转换器</li>
+<li><code>ZTCR</code> 可控硅控制无功元件</li>
+</ul>
+<blockquote>
+<p>上述逻辑节点使用上述 <strong>电力设备</strong> 的全部：</p>
+<ul>
+<li><strong>数据</strong></li>
+<li><strong>相关设定值</strong></li>
+<li>在变电站自动化系统(SAS)中的<strong>通信相关性能</strong>（communication relevant behavior in the SAS）</li>
+</ul>
+<p>表示上述设备</p>
+</blockquote>
+<h4 id="11-5-6-通用开关设备-Generic-process-I-O"><a href="#11-5-6-通用开关设备-Generic-process-I-O" class="headerlink" title="11.5.6 通用开关设备 Generic process I/O"></a>11.5.6 通用开关设备 Generic process I/O</h4><ul>
+<li><code>GGIO</code> 通用输入 / 输出（模拟输出、辅助继电器等输出等未定义的IO装置）</li>
+</ul>
+<h3 id="11-6-有关系统服务逻辑节点-LNs-related-to-system-services"><a href="#11-6-有关系统服务逻辑节点-LNs-related-to-system-services" class="headerlink" title="11.6 有关系统服务逻辑节点 LNs related to system services"></a>11.6 有关系统服务逻辑节点 LNs related to system services</h3><ul>
+<li><code>STIM</code> 主时钟（为系统的LN提供时间，用来设定或同步）</li>
+<li><code>SSYS</code> 系统监管（为系统监管启动，收集和处理全部数据的LN）</li>
+<li><code>GTES</code> 测试信号发生器（使用过程信号启动测试）</li>
+</ul>
+<hr>
+<h2 id="12-逻辑节点应用"><a href="#12-逻辑节点应用" class="headerlink" title="12 逻辑节点应用"></a>12 逻辑节点应用</h2><h3 id="12-1-基本原理"><a href="#12-1-基本原理" class="headerlink" title="12.1 基本原理"></a>12.1 基本原理</h3><h4 id="12-1-1-逻辑节点自由分配"><a href="#12-1-1-逻辑节点自由分配" class="headerlink" title="12.1.1 逻辑节点自由分配"></a>12.1.1 逻辑节点自由分配</h4><ul>
+<li>公共的层次结构并不约束功能（逻辑节点）的自由分配</li>
+</ul>
+<h4 id="12-1-2-变电站层"><a href="#12-1-2-变电站层" class="headerlink" title="12.1.2 变电站层"></a>12.1.2 变电站层</h4><p>这些LN表示变电站层</p>
+<ul>
+<li>包括而不限于 <code>IHMI</code>，<code>CILO</code>，<code>CALH</code>，<code>ATCC</code> 等</li>
+<li>常见<code>I...</code>，也有<code>A...</code>和 <code>C...</code></li>
+</ul>
+<h4 id="12-1-3-间隔层"><a href="#12-1-3-间隔层" class="headerlink" title="12.1.3 间隔层"></a>12.1.3 间隔层</h4><p>这些LN表示系统的间隔层控制、自动、测量和保护功能</p>
+<ul>
+<li>包括而不限于 <code>CILO</code>，<code>ATCC</code>，<code>MMXU</code>，<code>CSWI</code>、<code>PDIS</code>、<code>PZSU</code>、<code>PDOC</code>等</li>
+<li>常见<code>P...</code>，<code>C...</code>和<code>A...</code>，也有<code>X...</code></li>
+</ul>
+<h4 id="12-1-4-过程-开关层"><a href="#12-1-4-过程-开关层" class="headerlink" title="12.1.4 过程 / 开关层"></a>12.1.4 过程 / 开关层</h4><p>这些LN代表了电力系统（一次系统），也就是说二次系统通过 I/O 所见的电网</p>
+<ul>
+<li>使用智能I / O 的话，LN也可以从间隔层下移到过程层</li>
+<li>常用<code>Y...</code>，<code>X...</code>和<code>Z...</code></li>
+</ul>
+<h3 id="12-2-基本实例"><a href="#12-2-基本实例" class="headerlink" title="12.2 基本实例"></a>12.2 基本实例</h3><h4 id="12-2-1-基本实例1"><a href="#12-2-1-基本实例1" class="headerlink" title="12.2.1 基本实例1"></a>12.2.1 基本实例1</h4><p><img src="./image-20200525213801969.png" alt="基本实例1"></p>
+<p>将功能分解成不同层次上交互的逻辑节点： </p>
+<ul>
+<li>通用自动化功能：<code>GAPC</code></li>
+<li>断路器控制功能：<code>CSWI</code>和<code>CILO</code></li>
+<li>电压控制功能：<code>ATCC</code></li>
+</ul>
+<h4 id="12-2-2-基本实例2"><a href="#12-2-2-基本实例2" class="headerlink" title="12.2.2 基本实例2"></a>12.2.2 基本实例2</h4><p><img src="./image-20200525222120748.png" alt="基本实例2"></p>
+<p>将功能分解成不同层次上交互的逻辑节点： </p>
+<ul>
+<li>具有远动接口的通用功能：<code>IRTI</code>和<code>GAPC</code></li>
+<li>保护功能：<code>P...</code></li>
+<li>测量/计量功能：<code>MMTR</code>和<code>MMXU</code></li>
+</ul>
+<h3 id="12-3-附加实例"><a href="#12-3-附加实例" class="headerlink" title="12.3 附加实例"></a>12.3 附加实例</h3><h4 id="12-3-1-附加实例1"><a href="#12-3-1-附加实例1" class="headerlink" title="12.3.1 附加实例1"></a>12.3.1 附加实例1</h4><p><img src="./image-20200525222429780.png" alt="附加实例1"></p>
+<p>组合在变压器柜中一个物理装备中的控制LN和保护LN</p>
+<ul>
+<li>控制LN：<code>ATCC</code></li>
+<li>保护LN：<code>PDIS</code></li>
+</ul>
+<h4 id="12-3-2-附加实例2"><a href="#12-3-2-附加实例2" class="headerlink" title="12.3.2 附加实例2"></a>12.3.2 附加实例2</h4><p><img src="./image-20200525225059732.png" alt="附加实例2"></p>
+<ul>
+<li>开关控制：<code>CSWI</code></li>
+<li>联锁：<code>CILO</code></li>
+<li>同步检查：<code>RSYN</code></li>
+<li>自动重合闸：<code>RREC</code></li>
+<li>继电保护：<code>P...</code></li>
+</ul>
+<h4 id="12-3-3-附加实例3"><a href="#12-3-3-附加实例3" class="headerlink" title="12.3.3 附加实例3"></a>12.3.3 附加实例3</h4><p><img src="./image-20200525225829617.png" alt="附加实例3"></p>
+<p>复杂功能如定点分合的 LN（远程或本地）顺序交互的示例</p>
+<ul>
+<li>开关控制器：<code>CSWI</code></li>
+<li>定点分合断路器控制器：<code>CPOW</code></li>
+</ul>
+<h4 id="12-3-4-附加实例4"><a href="#12-3-4-附加实例4" class="headerlink" title="12.3.4 附加实例4"></a>12.3.4 附加实例4</h4><p><img src="./image-20200525231456509.png" alt="附加实例4"></p>
+<p>定点分合逻辑节点（本地和远方）功能作用—结构图</p>
+<ul>
+<li>定点分合逻辑节点：<code>CPOW</code></li>
+<li>同期或同期检查：<code>RSYN</code></li>
+</ul>
+<h4 id="12-3-5-附加实例5"><a href="#12-3-5-附加实例5" class="headerlink" title="12.3.5 附加实例5"></a>12.3.5 附加实例5</h4><p><img src="./image-20200525232105962.png" alt="附加实例5"></p>
+<p>自动调节分接头控制调节电压实例</p>
+<ul>
+<li>保护功能：<code>PTOV</code>，<code>PTUV</code>和<code>PIOC</code>分别用于过压，欠压和过流保护</li>
+<li>相关量测量：<code>MMXU</code></li>
+<li>人机接口：<code>IHMI</code></li>
+</ul>
+<h4 id="12-3-6-附加实例6"><a href="#12-3-6-附加实例6" class="headerlink" title="12.3.6 附加实例6"></a>12.3.6 附加实例6</h4><p><img src="./image-20200525233212423.png" alt="附加实例6"></p>
+<p>断路器分相控制（每相一个 <code>XCBR</code> 实例）和 带有分相测量单元的互感器（每相一个 <code>TCTR</code> 或 <code>TVTR</code> 实例）</p>
+<h4 id="12-3-7-附加实例7"><a href="#12-3-7-附加实例7" class="headerlink" title="12.3.7 附加实例7"></a>12.3.7 附加实例7</h4><p><img src="./image-20200525233346710.png" alt="附加实例7"></p>
+<p>左）分布母差保护（中央单元和分相单元 <code>PBDF</code> 逻辑节点实例）</p>
+<p>右）开关间隔中每个开关</p>
+<p>断路器联锁（<code>CILO</code> 逻辑节点实例） </p>
+<h3 id="12-4-建模注解"><a href="#12-4-建模注解" class="headerlink" title="12.4 建模注解"></a>12.4 建模注解</h3><ul>
+<li>本系列标准第 7 部分（IEC61850-7-X）定义全部建模实现方法</li>
+<li>本章节说明本系列标准第 5 和第 7 部分之间关系一些要点</li>
+</ul>
+<h4 id="12-4-1-对象类和实例"><a href="#12-4-1-对象类和实例" class="headerlink" title="12.4.1 对象类和实例"></a>12.4.1 对象类和实例</h4><ul>
+<li>此处描述的LN为所有实现提供了通用功能，即，它们在对象建模方面代表了LN类。</li>
+<li>在实际的实现中，LN表现为一个个体（单一的标识，要交换的个别数据），即，它们在对象建模方面代表LN实例。</li>
+<li>来自同一LN类的LN实例可能在设备中出现一次或多次。</li>
+</ul>
+<blockquote>
+<p>个人理解：</p>
+<p>就拿开关控制（<code>CSWI</code>）来讲，既是开关控制类的声明，也是类的实例</p>
+<p>他是所有开关控制节点的一个概述，不管实际上是怎么实现的，只需要实现基本功能（开/关），所以他就代表了开关控制类的所有情况，代表了开关控制LN类</p>
+<p>另一方面，在系统图中，每一个<code>CSWI</code>都是单独存在的，他们都有不同的物理设备映射，此时他代表了开关控制LN的一个实例</p>
+</blockquote>
+<h4 id="12-4-2-要求和建模"><a href="#12-4-2-要求和建模" class="headerlink" title="12.4.2 要求和建模"></a>12.4.2 要求和建模</h4><p>通信要求与任何建模方式无关</p>
+<h4 id="12-4-3-逻辑节点和模型"><a href="#12-4-3-逻辑节点和模型" class="headerlink" title="12.4.3 逻辑节点和模型"></a>12.4.3 逻辑节点和模型</h4><ul>
+<li>从需求出发建模</li>
+<li>在CS模型中只作为客户出现的LN，比如<code>IHMI</code> <code>ITCI</code>和<code>ITMI</code>，没有数据对象，故无建模要求</li>
+<li>本系列标准第 7 部分中对逻辑节点进行了分解和组合，这是为更便利地建模，不影响通信要求。</li>
+</ul>
+<h2 id="13-报文性能要求"><a href="#13-报文性能要求" class="headerlink" title="13 报文性能要求"></a>13 报文性能要求</h2><h3 id="13-1-概述"><a href="#13-1-概述" class="headerlink" title="13.1 概述"></a>13.1 概述</h3><ul>
+<li>逻辑节点间通信由数千个独立的 PICOM 加以描述，他们之间存在相似之处</li>
+<li>对PICOM分类可以实现对需求的全面概述，又可以对所请求的通信性能进行强有力的建模和定义</li>
+<li>根据共同的用途和属性对PICOM进行分类，结果为附录B.2（实现功能分类）</li>
+<li>使用PICOM最重要的公共属性进行分类分类，结果为B.3（主要功能分类）</li>
+<li>传输时间要求简化为用最高的传输时间数据表示</li>
+<li>数据交换的最大允许时间称为”总传输时间”</li>
+<li>传输时间要求是系统要求，时间标签要求是设备要求，但请参考系统支持功能“时间同步”</li>
+<li>13.7 中，各种 PICOM 类型分组为 7 种报文类型，其属性范围由性能类建立，给出了对典型应用和接口分配的建议</li>
+<li>13.5 条介绍了报文类型和用法</li>
+<li>13.6 条介绍了性能类和其用法</li>
+</ul>
+<h3 id="13-2-基本时间需求"><a href="#13-2-基本时间需求" class="headerlink" title="13.2 基本时间需求"></a>13.2 基本时间需求</h3><p>IEC61850标准兼容装置所用的事件模型和格式要求规定如下：</p>
+<ol>
+<li>精度</li>
+<li>时间标记应基于现有时间标准</li>
+<li>时间模型应能跟踪闰秒</li>
+<li>时间模型应提供足够的信息，使得客户无需附加信息</li>
+<li>时间标记信息应容易从商业可用时间资源中获得，（如，GPS）</li>
+<li>总的时间模型应包括可计算当地时间的信息</li>
+<li>时间模型应允许偏离当地时间半小时</li>
+<li>时间模型应指示夏时制是否有效</li>
+<li>时间格式至少应持续使用 100 年时间</li>
+<li>时间格式应紧凑，机器易操作</li>
+</ol>
+<p>这些基本时间要求是系统要求，但是系统由装置组成，因此，若需要的话，装置应支持这些要求</p>
+<h3 id="13-3-事件时间定义"><a href="#13-3-事件时间定义" class="headerlink" title="13.3 事件时间定义"></a>13.3 事件时间定义</h3><ol>
+<li>事件为计算结果：立即标记时间</li>
+<li>事件为状态输入变化：需考虑输入出点抖动过程延时，并进行修正</li>
+<li>模拟输入变化：需考虑输入电路滤波过程，并进行修正</li>
+</ol>
+<p>不必在接收端纠正</p>
+<h3 id="13-4-传输时间定义"><a href="#13-4-传输时间定义" class="headerlink" title="13.4 传输时间定义"></a>13.4 传输时间定义</h3><ul>
+<li>一个报文的完整传输包括收发端必要的处理</li>
+<li>计时从发送方把数据内容置于其传输栈顶时刻开始，直到接受方从其传输栈中取走数据时结束，所以传输时间将包括各自通信处理器时间加上网络时间，其中有等待时间、路由器与其他网络设备所耗费的时间</li>
+</ul>
+<p><img src="./image-20200526110507391.png" alt="总传输时间定义"></p>
+<h3 id="13-5-报文类型介绍和使用"><a href="#13-5-报文类型介绍和使用" class="headerlink" title="13.5 报文类型介绍和使用"></a>13.5 报文类型介绍和使用</h3><ul>
+<li>因为报文在内容、长度、最坏情况下允许的传输时间以及安全性的要求上各不相同，所以LN之间的PICOM通信会采用多种通信链路来传输各种报文</li>
+<li>PICOM 严格地基于单项专门功能，包括源和目的地信息交换； 报文类型基于与性能相关的PICOM属性的分组，因此，定义了要支持的性能要求</li>
+<li>性能要求按每个报文定义，与变电站大小无关。</li>
+</ul>
+<h3 id="13-6-性能类介绍和使用"><a href="#13-6-性能类介绍和使用" class="headerlink" title="13.6 性能类介绍和使用"></a>13.6 性能类介绍和使用</h3><ul>
+<li><p>为了适应变电站的不同需求，消息类型也细分出了性能类，性能类消息类型又可分为两类：</p>
+<ul>
+<li>保护和控制</li>
+<li>计量和电能质量</li>
+</ul>
+</li>
+<li><p>性能类依据功能要求进行定义，与变电站大小无关</p>
+</li>
+</ul>
+<h4 id="13-6-1-控制与保护"><a href="#13-6-1-控制与保护" class="headerlink" title="13.6.1 控制与保护"></a>13.6.1 控制与保护</h4><ul>
+<li>性能类==P1==用于配电线间隔或其它要求较低的间隔</li>
+<li>性能类==P2==用于输电线间隔或用户未另外规定的地方</li>
+<li>性能类==P3==用于输电线间隔，具备满足同步和断路器分合时间差的最好性能</li>
+</ul>
+<h4 id="13-6-2-计量和电能质量"><a href="#13-6-2-计量和电能质量" class="headerlink" title="13.6.2 计量和电能质量"></a>13.6.2 计量和电能质量</h4><ul>
+<li>性能类 ==M1== 用于具有 0.5 级（IEC62053-22）和 0.2（IEC60044-8）级精度计费计量，最高 5 次谐波</li>
+<li>性能类 ==M2== 用于具有 0.2 级（IEC62053-22）和 0.1（IEC60044-8）级精度计费计量，最高 13 次谐波</li>
+<li>性能类 ==M3== 用于电能质量计量，最高 40 次谐波。</li>
+</ul>
+<h3 id="13-7-报文类型和性能类"><a href="#13-7-报文类型和性能类" class="headerlink" title="13.7 报文类型和性能类"></a>13.7 报文类型和性能类</h3><h4 id="13-7-1-类型1-快速报文"><a href="#13-7-1-类型1-快速报文" class="headerlink" title="13.7.1 类型1-快速报文"></a>13.7.1 类型1-快速报文</h4><p>包含数据、命令或简单报文等简单二进制编码。接收IED收到报文后，需要以某种方式立即响应。否则没必要采用快速报文</p>
+<h5 id="13-7-1-1-类型1A-“跳闸”"><a href="#13-7-1-1-类型1A-“跳闸”" class="headerlink" title="13.7.1.1 类型1A-“跳闸”"></a>13.7.1.1 类型1A-“跳闸”</h5><p>”跳闸“是变电站中最重要的快速报文，与其它快速报文相比，该报文具有较多需求要求</p>
+<ol>
+<li>性能类==P1==，总传输时间应在半个周期内（10ms）</li>
+<li>性能类==P2==/==P3==，总传输时间应小于1/4个周期内（3ms）</li>
+</ol>
+<h5 id="13-7-1-2-类型1B-“其他”"><a href="#13-7-1-2-类型1B-“其他”" class="headerlink" title="13.7.1.2 类型1B-“其他”"></a>13.7.1.2 类型1B-“其他”</h5><p>所有”其它“快速报文对自动化系统与过程相互作用比较重要，但与跳闸报文相比，有较少需求要求</p>
+<ol>
+<li>性能类 ==P1==，总传输时间应小于等于 100ms</li>
+<li>性能类 ==P2==/==P3==，总传输时间应在一个周期内，定义 20ms</li>
+</ol>
+<p><em>注：这些是接口 3、接口 5 和接口 8 典型报文。</em></p>
+<h4 id="13-7-2-类型-2-中速报文"><a href="#13-7-2-类型-2-中速报文" class="headerlink" title="13.7.2 类型 2-中速报文"></a>13.7.2 类型 2-中速报文</h4><ul>
+<li>这类报文产生的时刻非常关键，而传输时间则不那么重要（比如只在意时间戳数据的时候）</li>
+<li>总传输时间必须小于 100ms</li>
+</ul>
+<p><em>是接口 IF3、IF8 与 IF9 典型报文。</em></p>
+<h4 id="13-7-3-类型-3-低速报文"><a href="#13-7-3-类型-3-低速报文" class="headerlink" title="13.7.3 类型 3-低速报文"></a>13.7.3 类型 3-低速报文</h4><ul>
+<li>包括了需要时标的复杂报文</li>
+<li>用于慢速自动控制功能、传输事件记录、读取或改变设定点的值，还有系统数据一般显示</li>
+<li>总传输时间必须小于 500ms</li>
+</ul>
+<p><em>几乎用于所有接口，至少在用于参数设置，IF1, IF3, IF4, IF5, IF6, IF7, IF8, IF9</em></p>
+<h4 id="13-7-4-类型-4-原始数据报文"><a href="#13-7-4-类型-4-原始数据报文" class="headerlink" title="13.7.4 类型 4-原始数据报文"></a>13.7.4 类型 4-原始数据报文</h4><ul>
+<li>包含数字化传感器和数字互感器的输出数据</li>
+<li>数据将包含来自每个IED的连续同步数据流，与来自其他IED的数据交织在一起</li>
+<li><em>典型用于 IF4。某些应用中，用于 IF8</em></li>
+</ul>
+<p><img src="./image-20200526132545915.png" alt="表1. 保护和控制原始数据"></p>
+<p><img src="./image-20200526132523359.png" alt="表2. 计量原始数据"></p>
+<h4 id="13-7-5-类型5-文件传输功能"><a href="#13-7-5-类型5-文件传输功能" class="headerlink" title="13.7.5 类型5 文件传输功能"></a>13.7.5 类型5 文件传输功能</h4><ul>
+<li>用于传输，如记录、信息用途数据、定值等大型数据文件</li>
+<li>数据被分割成限定长度的数据块，PICOM位长典型不小于512位</li>
+<li>传输时间没有具体限制，一般要求大于等于1000ms</li>
+<li>对于远程访问，因为有访问控制的存在，所以因该是类型7</li>
+</ul>
+<h4 id="13-7-6-类型6-时间同步报文"><a href="#13-7-6-类型6-时间同步报文" class="headerlink" title="13.7.6 类型6 时间同步报文"></a>13.7.6 类型6 时间同步报文</h4><ul>
+<li>用于同步SAS内IED内部时钟，并根据不同的目的而要求不同级别的时间同步精度</li>
+<li>具体实现中的精度要求可能要比功能要求高很多</li>
+<li>除了整个系统的时间准确性外，没有定义对同步消息的直接要求</li>
+</ul>
+<h5 id="13-7-6-1-保护和控制事件用标准智能电子设备时间同步"><a href="#13-7-6-1-保护和控制事件用标准智能电子设备时间同步" class="headerlink" title="13.7.6.1 保护和控制事件用标准智能电子设备时间同步"></a>13.7.6.1 保护和控制事件用标准智能电子设备时间同步</h5><table>
+<thead>
+<tr>
+<th align="center">时间性能类</th>
+<th align="center">精度[ms]</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">T1</td>
+<td align="center">±1</td>
+<td>事件时标</td>
+</tr>
+<tr>
+<td align="center">T2</td>
+<td align="center">±0.1</td>
+<td>用于分布同期的过零和数据时标。支持定点分合时标</td>
+</tr>
+</tbody></table>
+<p>系统范围时间同步的需要，几乎所有接口使用该类型报文，IF1，IF3，IF4，IF5，IF6，IF7，IF8，IF9</p>
+<h5 id="13-7-6-2-互感器用标准智能电子设备-IED-时间同步"><a href="#13-7-6-2-互感器用标准智能电子设备-IED-时间同步" class="headerlink" title="13.7.6.2 互感器用标准智能电子设备 IED 时间同步"></a>13.7.6.2 互感器用标准智能电子设备 IED 时间同步</h5><table>
+<thead>
+<tr>
+<th align="center">时间性能类</th>
+<th>精度[μs]</th>
+<th>引用</th>
+<th>引用</th>
+<th align="center">相角 (′） 50Hz</th>
+<th align="center">相角 (′） 60Hz</th>
+<th align="center">故障定位（m）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">T3</td>
+<td>±25</td>
+<td>P1</td>
+<td></td>
+<td align="center">27</td>
+<td align="center">32</td>
+<td align="center">7500</td>
+</tr>
+<tr>
+<td align="center">T4</td>
+<td>±4</td>
+<td>P2</td>
+<td>M1</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">1200</td>
+</tr>
+<tr>
+<td align="center">T5</td>
+<td>±1</td>
+<td>P3</td>
+<td>M2 / M3</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">300</td>
+</tr>
+</tbody></table>
+<p><em>注：性能类 T3、T4 和 T5 一般用于接口 IF4。某些应用中，用于 IF8</em></p>
+<h4 id="13-7-7-类型-7-访问控制命令报文"><a href="#13-7-7-类型-7-访问控制命令报文" class="headerlink" title="13.7.7 类型 7 访问控制命令报文"></a>13.7.7 类型 7 访问控制命令报文</h4><ul>
+<li>用于传输控制命令，控制命令由要求较高安全性的本地或远程人机接口 HMI 功能发出（接口 7，外部技术服务）</li>
+<li>基于类型 3，并加上了额外的口令和（或）验证过程，从操作员下传，通过某些控制层传到开关设备，或传到某些受控对象</li>
+<li>至少在过程层，可能被转换为要求具有类型 1 特征的报文。</li>
+<li>这些是用于操作员通过本地或远程人机接口 HMI 访问的典型报文。涉及接口 IF1、IF6 与 IF7。</li>
+</ul>
+<h2 id="14-数据完整性要求"><a href="#14-数据完整性要求" class="headerlink" title="14 数据完整性要求"></a>14 数据完整性要求</h2><p>完整性意指对于给定背景噪声情况下，所产生数据错误小于可接受限值</p>
+<ol>
+<li>适当设计装置和通信系统，如密封防护和使用光纤连接</li>
+<li>应用适当编码，如，海明距离</li>
+<li>至少使用两个步骤顺序，如对命令使用操作前选择（SBO）步骤顺序。</li>
+</ol>
+<h2 id="15-系统性能要求"><a href="#15-系统性能要求" class="headerlink" title="15 系统性能要求"></a>15 系统性能要求</h2><h3 id="15-1-介绍"><a href="#15-1-介绍" class="headerlink" title="15.1 介绍"></a>15.1 介绍</h3><ul>
+<li>在设计阶段必须考虑和研究动态性能的要求</li>
+<li>计算有两种方法<ul>
+<li>基于 PICOM 模型</li>
+<li>对局域网(LAN)性能的仿真。</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-2-计算方法"><a href="#15-2-计算方法" class="headerlink" title="15.2 计算方法"></a>15.2 计算方法</h3><p>略</p>
+<h4 id="15-2-1-PICOM方法"><a href="#15-2-1-PICOM方法" class="headerlink" title="15.2.1 PICOM方法"></a>15.2.1 PICOM方法</h4><h4 id="15-2-2-局域网仿真方法"><a href="#15-2-2-局域网仿真方法" class="headerlink" title="15.2.2 局域网仿真方法"></a>15.2.2 局域网仿真方法</h4><h3 id="15-3-计算结果"><a href="#15-3-计算结果" class="headerlink" title="15.3 计算结果"></a>15.3 计算结果</h3><h3 id="15-4-小结"><a href="#15-4-小结" class="headerlink" title="15.4 小结"></a>15.4 小结</h3><h2 id="16-数据模型附加要求"><a href="#16-数据模型附加要求" class="headerlink" title="16 数据模型附加要求"></a>16 数据模型附加要求</h2><p>为互操作性，数据模型将说明被<strong>交换数据的语义和语法</strong>。</p>
+<h3 id="16-1-逻辑节点寻址要求"><a href="#16-1-逻辑节点寻址要求" class="headerlink" title="16.1 逻辑节点寻址要求"></a>16.1 逻辑节点寻址要求</h3><ul>
+<li>每个逻辑节点应自身可寻址 （要求）</li>
+<li>寻址配置将使用分层命名结构和对象数据目录</li>
+</ul>
+<h3 id="16-2-数据模型要求"><a href="#16-2-数据模型要求" class="headerlink" title="16.2 数据模型要求"></a>16.2 数据模型要求</h3><ul>
+<li>所有装置有关功能和可传输数据应提供自我描述</li>
+<li>人机接口 HMI 所用的信息应可得到 ASCII 文本</li>
+<li>对明确的装置对装置之间通信，即无运行人员干扰的数据交换，数据（PICOM）标识和属性对装置应是可理解的</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fanbuxie823.github.io/2020/06/03/Part-5/" data-id="ckazasms00003i39ubhqj12n0" class="article-share-link">Share</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hello-World" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/22/Hello-World/" class="article-date">
+  <time datetime="2020-03-22T11:39:18.000Z" itemprop="datePublished">2020-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/22/Hello-World/">Hello？Hello！</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="这是什么？"><a href="#这是什么？" class="headerlink" title="这是什么？"></a>这是什么？</h3><p>这是一个用Hexo搭建的小站，用于记录、学习、总结、反思。</p>
+<h3 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h3><p>要说这一切的源头，是从去年的双十一开始的。每每遇到这个时候，国内的两大云服务提供者阿里云和腾讯云都会顺势推出很多价格优惠的服务器，今年也不例外。因为一直想有一台服务器来搞点小项目，而且价格确实挺便宜，虽然还没想好做什么，秉着用硬件基础来创造需求的念头，就入了一个配置最基础的一个服务器。</p>
+<p>可是一直到现在其实也没想出来该做点啥，白白放置了几个月😂😂😂</p>
+<p>所以不能再这么下去了，浪费是可耻的。搜索了一番之后，觉得建一个私人站是一个不错的选择。长久以来自己一直用微博来记录生活，但是因为近些年的一系列事件，我对微博的可靠性感觉很不放心。所以如果有时间，有想法的话，会努力在这里写东西的，希望能够持续下去。</p>
+<h3 id="真的嘛？"><a href="#真的嘛？" class="headerlink" title="真的嘛？"></a>真的嘛？</h3><p>说出来其实我都不信，但是谁知道呢哈哈哈哈🤪🤪🤪</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fanbuxie823.github.io/2020/03/22/Hello-World/" data-id="ckazasmrw0001i39u7kkmavka" class="article-share-link">Share</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/03/Part-5/">Part 5</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/Hello-World/">Hello？Hello！</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 E.M.I<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+</div>
+</body>
+</html>
