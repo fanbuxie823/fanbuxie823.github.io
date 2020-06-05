@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"fanbuxie823.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"fanbuxie823.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="第 5 部分：功能通信要求和装置模型0. 引言IEC 61850  为了实现变电站内所有装置间的互操作 变电站内所有装置间的通信应满足变电站中所完成全部功能的要求 系列标准总则、要求规范和建模等部分与任何实现无关">
@@ -46,7 +46,7 @@
 <meta property="og:image" content="http://fanbuxie823.github.io/2020/06/03/Part-5/image-20200526132545915.png">
 <meta property="og:image" content="http://fanbuxie823.github.io/2020/06/03/Part-5/image-20200526132523359.png">
 <meta property="article:published_time" content="2020-06-03T10:48:47.000Z">
-<meta property="article:modified_time" content="2020-06-03T15:12:05.686Z">
+<meta property="article:modified_time" content="2020-06-04T11:05:56.487Z">
 <meta property="article:author" content="E.M.I">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://fanbuxie823.github.io/2020/06/03/Part-5/image-20200521105308906.png">
@@ -98,13 +98,16 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
 
@@ -126,6 +129,30 @@
 
 
 
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">0</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
 
 
 
@@ -175,10 +202,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-06-03 18:48:47 / 修改时间：23:12:05" itemprop="dateCreated datePublished" datetime="2020-06-03T18:48:47+08:00">2020-06-03</time>
+              <time title="创建时间：2020-06-03 18:48:47" itemprop="dateCreated datePublished" datetime="2020-06-03T18:48:47+08:00">2020-06-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-04 19:05:56" itemprop="dateModified" datetime="2020-06-04T19:05:56+08:00">2020-06-04</time>
+              </span>
 
           
 
@@ -217,7 +250,7 @@
 <h2 id="1-范围"><a href="#1-范围" class="headerlink" title="1. 范围"></a>1. 范围</h2><ul>
 <li>本标准适用于变电站自动化系统（SAS），规定了智能电子设备之间的通信和相关系统要求</li>
 <li>本标准规定了变电站自动化系统所完成功能的<strong>通信要求</strong>和<strong>装置模型</strong>。</li>
-<li><strong>功能的描述</strong>并不是用于功能标准化而是用于标识技术服务和变电站之间、变电站内智能电子设备 （IED）之间的<strong>通信要求</strong>。==<em>只为了标示通信要求</em>==</li>
+<li><strong>功能的描述</strong>并不是用于功能标准化而是用于标识技术服务和变电站之间、变电站内智能电子设备 （IED）之间的<strong>通信要求</strong>。<code>*只为了标示通信要求*</code></li>
 <li>为支持功能自由分配要求，定义了将功能<strong>分解为相关通信部分</strong>的方法，规定了交换数据和它们的性能要求。</li>
 </ul>
 <h2 id="2-规范性引用文件"><a href="#2-规范性引用文件" class="headerlink" title="2. 规范性引用文件"></a>2. 规范性引用文件</h2><p><em>pass</em></p>
@@ -325,23 +358,23 @@
 <h4 id="3-12-1-间隔层功能-bay-level-functions"><a href="#3-12-1-间隔层功能-bay-level-functions" class="headerlink" title="3.12.1 间隔层功能 bay level functions"></a>3.12.1 间隔层功能 bay level functions</h4><ul>
 <li>那些主要使用间隔数据，作用于间隔内一次设备的功能</li>
 <li>间隔功能的定义考虑了变电站一次结构中某种有意义的子结构（参见 3.10）；和有关这种子结构，二次系统中（变电站自动化）的某些局部功能或自动化（变电站自动化）</li>
-<li>这样一些功能如<strong>线路保护、间隔控制</strong>。它们在间隔层内，经逻辑接口 3 通信，经逻辑==接口 4== 和 ==接口5== 与过程层，即与远方 I/O，智能传感器和控制器通信。</li>
+<li>这样一些功能如<strong>线路保护、间隔控制</strong>。它们在间隔层内，经逻辑接口 3 通信，经逻辑<code>接口 4</code> 和 <code>接口5</code> 与过程层，即与远方 I/O，智能传感器和控制器通信。</li>
 </ul>
 <h4 id="3-12-2-过程层功能-process-level-function"><a href="#3-12-2-过程层功能-process-level-function" class="headerlink" title="3.12.2 过程层功能 process level function"></a>3.12.2 过程层功能 process level function</h4><ul>
 <li>与过程接口相关的所有功能，基本状态量和模拟量输入输出功能</li>
-<li>过程层功能经逻辑==接口 4== 和==接口 5==与间隔层通信。</li>
+<li>过程层功能经逻辑<code>接口 4</code> 和<code>接口 5</code>与间隔层通信。</li>
 <li>如，数据采集（包括采样）、发出控制命令</li>
 </ul>
 <h4 id="3-12-3-变电站层功能-station-level-functions"><a href="#3-12-3-变电站层功能-station-level-functions" class="headerlink" title="3.12.3 变电站层功能 station level functions"></a>3.12.3 变电站层功能 station level functions</h4><p>变电站层功能将变电站看作一个整体，分为<strong>过程有关变电站层功能</strong> 和 <strong>接口有关变电站层功能</strong>的两类变电站层功能。</p>
 <h5 id="3-12-4-过程有关变电站层功能-process-related-station-level-functions"><a href="#3-12-4-过程有关变电站层功能-process-related-station-level-functions" class="headerlink" title="3.12.4 过程有关变电站层功能 process related station level functions"></a>3.12.4 过程有关变电站层功能 process related station level functions</h5><ul>
 <li>使用一个以上的间隔数据或整个变电站数据，控制一个以上间隔的一次设备或整个变电站</li>
-<li>主要经==接口 8== 通信</li>
+<li>主要经<code>接口 8</code> 通信</li>
 <li>实例有：站级联锁、顺控、母线保护</li>
 </ul>
 <h5 id="3-12-5-接口有关变电站层功能-interface-related-substation-level-functions"><a href="#3-12-5-接口有关变电站层功能-interface-related-substation-level-functions" class="headerlink" title="3.12.5 接口有关变电站层功能 interface related substation level functions"></a>3.12.5 接口有关变电站层功能 interface related substation level functions</h5><ul>
 <li>表示变电站自动化系统 SAS 与就地变电站运行人员人机接口HMI (Human Machine Interface)、与远方控制中心接口TCI (telecontrol interface)  或与远方监视和维护工程师办公接口 TMI (telemonitoring interface)等功能</li>
-<li>通过==接口1==和==接口6==与间隔层通讯</li>
-<li>通过==接口7==和远方控制接口与外部接口通讯</li>
+<li>通过<code>接口1</code>和<code>接口6</code>与间隔层通讯</li>
+<li>通过<code>接口7</code>和远方控制接口与外部接口通讯</li>
 <li>逻辑上，本地或远方人机接口并没有差别</li>
 <li>在变电站中，在变电站边界至少存在一个虚拟接口。对于 TCI 和 TMI 也同样。这些虚拟接口在某些实现中可 能作为代理服务器。（用来实现远程控制）</li>
 </ul>
@@ -1115,7 +1148,7 @@
 <blockquote>
 <p>个人理解：</p>
 <p>就拿开关控制（<code>CSWI</code>）来讲，既是开关控制类的声明，也是类的实例</p>
-<p>他是所有开关控制节点的一个概述，不管实际上是怎么实现的，只需要实现基本功能（开/关），所以他就代表了开关控制类的所有情况，代表了开关控制LN类</p>
+<p>他是所有开关控制节点的一个概述，不管实际上是怎么实现的，只需要实现基本功能（开/关），所以他就代表了开关控制类的所有情况，代表了开关控制LN类~</p>
 <p>另一方面，在系统图中，每一个<code>CSWI</code>都是单独存在的，他们都有不同的物理设备映射，此时他代表了开关控制LN的一个实例</p>
 </blockquote>
 <h4 id="12-4-2-要求和建模"><a href="#12-4-2-要求和建模" class="headerlink" title="12.4.2 要求和建模"></a>12.4.2 要求和建模</h4><p>通信要求与任何建模方式无关</p>
@@ -1132,9 +1165,9 @@
 <li>传输时间要求简化为用最高的传输时间数据表示</li>
 <li>数据交换的最大允许时间称为”总传输时间”</li>
 <li>传输时间要求是系统要求，时间标签要求是设备要求，但请参考系统支持功能“时间同步”</li>
-<li>13.7 中，各种 PICOM 类型分组为 7 种报文类型，其属性范围由性能类建立，给出了对典型应用和接口分配的建议</li>
-<li>13.5 条介绍了报文类型和用法</li>
-<li>13.6 条介绍了性能类和其用法</li>
+<li><a href="#13-7-报文类型和性能类">13.7</a>中，各种 PICOM 类型分组为 7 种报文类型，其属性范围由性能类建立，给出了对典型应用和接口分配的建议</li>
+<li><a href="#13-5-报文类型介绍和使用">13.5</a> 条介绍了报文类型和用法</li>
+<li><a href="#13-6-性能类介绍和使用">13.6</a> 条介绍了性能类和其用法</li>
 </ul>
 <h3 id="13-2-基本时间需求"><a href="#13-2-基本时间需求" class="headerlink" title="13.2 基本时间需求"></a>13.2 基本时间需求</h3><p>IEC61850标准兼容装置所用的事件模型和格式要求规定如下：</p>
 <ol>
@@ -1177,25 +1210,25 @@
 </li>
 </ul>
 <h4 id="13-6-1-控制与保护"><a href="#13-6-1-控制与保护" class="headerlink" title="13.6.1 控制与保护"></a>13.6.1 控制与保护</h4><ul>
-<li>性能类==P1==用于配电线间隔或其它要求较低的间隔</li>
-<li>性能类==P2==用于输电线间隔或用户未另外规定的地方</li>
-<li>性能类==P3==用于输电线间隔，具备满足同步和断路器分合时间差的最好性能</li>
+<li>性能类<code>P1</code>用于配电线间隔或其它要求较低的间隔</li>
+<li>性能类<code>P2</code>用于输电线间隔或用户未另外规定的地方</li>
+<li>性能类<code>P3</code>用于输电线间隔，具备满足同步和断路器分合时间差的最好性能</li>
 </ul>
 <h4 id="13-6-2-计量和电能质量"><a href="#13-6-2-计量和电能质量" class="headerlink" title="13.6.2 计量和电能质量"></a>13.6.2 计量和电能质量</h4><ul>
-<li>性能类 ==M1== 用于具有 0.5 级（IEC62053-22）和 0.2（IEC60044-8）级精度计费计量，最高 5 次谐波</li>
-<li>性能类 ==M2== 用于具有 0.2 级（IEC62053-22）和 0.1（IEC60044-8）级精度计费计量，最高 13 次谐波</li>
-<li>性能类 ==M3== 用于电能质量计量，最高 40 次谐波。</li>
+<li>性能类 <code>M1</code> 用于具有 0.5 级（IEC62053-22）和 0.2（IEC60044-8）级精度计费计量，最高 5 次谐波</li>
+<li>性能类 <code>M2</code> 用于具有 0.2 级（IEC62053-22）和 0.1（IEC60044-8）级精度计费计量，最高 13 次谐波</li>
+<li>性能类 <code>M3</code> 用于电能质量计量，最高 40 次谐波。</li>
 </ul>
 <h3 id="13-7-报文类型和性能类"><a href="#13-7-报文类型和性能类" class="headerlink" title="13.7 报文类型和性能类"></a>13.7 报文类型和性能类</h3><h4 id="13-7-1-类型1-快速报文"><a href="#13-7-1-类型1-快速报文" class="headerlink" title="13.7.1 类型1-快速报文"></a>13.7.1 类型1-快速报文</h4><p>包含数据、命令或简单报文等简单二进制编码。接收IED收到报文后，需要以某种方式立即响应。否则没必要采用快速报文</p>
 <h5 id="13-7-1-1-类型1A-“跳闸”"><a href="#13-7-1-1-类型1A-“跳闸”" class="headerlink" title="13.7.1.1 类型1A-“跳闸”"></a>13.7.1.1 类型1A-“跳闸”</h5><p>”跳闸“是变电站中最重要的快速报文，与其它快速报文相比，该报文具有较多需求要求</p>
 <ol>
-<li>性能类==P1==，总传输时间应在半个周期内（10ms）</li>
-<li>性能类==P2==/==P3==，总传输时间应小于1/4个周期内（3ms）</li>
+<li>性能类<code>P1</code>，总传输时间应在半个周期内（10ms）</li>
+<li>性能类<code>P2</code>/<code>P3</code>，总传输时间应小于1/4个周期内（3ms）</li>
 </ol>
 <h5 id="13-7-1-2-类型1B-“其他”"><a href="#13-7-1-2-类型1B-“其他”" class="headerlink" title="13.7.1.2 类型1B-“其他”"></a>13.7.1.2 类型1B-“其他”</h5><p>所有”其它“快速报文对自动化系统与过程相互作用比较重要，但与跳闸报文相比，有较少需求要求</p>
 <ol>
-<li>性能类 ==P1==，总传输时间应小于等于 100ms</li>
-<li>性能类 ==P2==/==P3==，总传输时间应在一个周期内，定义 20ms</li>
+<li>性能类 <code>P1</code>，总传输时间应小于等于 100ms</li>
+<li>性能类 <code>P2</code>/<code>P3</code>，总传输时间应在一个周期内，定义 20ms</li>
 </ol>
 <p><em>注：这些是接口 3、接口 5 和接口 8 典型报文。</em></p>
 <h4 id="13-7-2-类型-2-中速报文"><a href="#13-7-2-类型-2-中速报文" class="headerlink" title="13.7.2 类型 2-中速报文"></a>13.7.2 类型 2-中速报文</h4><ul>
@@ -1325,6 +1358,23 @@
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>E.M.I
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://fanbuxie823.github.io/2020/06/03/Part-5/" title="Part 5">http://fanbuxie823.github.io/2020/06/03/Part-5/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
 
       <footer class="post-footer">
 
@@ -1408,7 +1458,8 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives">
+          <a href="/archives/">
+        
           <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
@@ -1461,12 +1512,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/muse.js"></script>
